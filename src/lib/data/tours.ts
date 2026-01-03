@@ -176,6 +176,84 @@ export const tours: Tour[] = [
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/images/tours/honeymoon-hero.jpg',
     galleryImages: []
+  },
+  {
+    id: 'tour-5',
+    slug: 'galle-city-tour',
+    title: 'Galle City Tour',
+    shortTitle: 'Galle City Day Tour',
+    category: 'cultural',
+    description: 'A one-day exploration of the UNESCO-listed Galle Fort, coastal vistas, and nearby beaches with boutique stops and lighthouse views.',
+    shortDescription: 'Explore Galle Fort, lighthouse views, beaches, and colonial streets in a single curated day.',
+    price: 59,
+    currency: 'USD',
+    duration: { nights: 0, days: 1 },
+    bestFor: ['Culture lovers', 'History buffs', 'First-timers'],
+    difficulty: 'easy',
+    highlights: [
+      'UNESCO Galle Fort ramparts and lighthouse',
+      'Boutiques, cafes, and Dutch Reformed Church',
+      'Jungle Beach and Unawatuna options nearby'
+    ],
+    itinerary: [
+      { day: 1, title: 'Galle City Day', timeframe: '8:00 AM - 6:00 PM', description: 'Walk the Galle Fort ramparts, visit the lighthouse, Dutch Reformed Church, Maritime Museum, and wander boutique-lined streets. Optional visits to Jungle Beach, Unawatuna, and the Japanese Peace Pagoda.' }
+    ],
+    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
+    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
+    heroImage: '/preview images/AdobeStock_202776698_Preview.jpeg',
+    galleryImages: []
+  },
+  {
+    id: 'tour-6',
+    slug: 'kandy-day-tour',
+    title: 'Kandy Day Tour',
+    shortTitle: 'Kandy Day Tour',
+    category: 'cultural',
+    description: 'A cultural day in the hill capital: Temple of the Tooth, lake stroll, gardens, viewpoints, and Kandyan dance.',
+    shortDescription: 'Temple of the Tooth, Peradeniya gardens, lake, and hilltop views in one curated Kandy day.',
+    price: 59,
+    currency: 'USD',
+    duration: { nights: 0, days: 1 },
+    bestFor: ['Culture enthusiasts', 'Photographers', 'Couples'],
+    difficulty: 'easy',
+    highlights: [
+      'Temple of the Tooth (UNESCO)',
+      'Peradeniya Botanical Gardens',
+      'Kandy Lake walk and city viewpoint'
+    ],
+    itinerary: [
+      { day: 1, title: 'Kandy Highlights', timeframe: '8:00 AM - 6:00 PM', description: 'Visit Temple of the Tooth, stroll Kandy Lake, explore Peradeniya Botanical Gardens, enjoy a cultural dance show, and climb to Bahirawakanda Big Buddha for city views.' }
+    ],
+    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
+    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
+    heroImage: '/preview images/AdobeStock_322535378_Preview.jpeg',
+    galleryImages: []
+  },
+  {
+    id: 'tour-7',
+    slug: 'sigiriya-day-tour',
+    title: 'Sigiriya Day Tour',
+    shortTitle: 'Sigiriya Day Tour',
+    category: 'adventure',
+    description: 'A one-day loop to Sigiriya and Dambulla with village life, cave temples, and the iconic Lion Rock ascent.',
+    shortDescription: 'Climb Sigiriya, explore Dambulla caves, and experience village life in a single adventurous day.',
+    price: 59,
+    currency: 'USD',
+    duration: { nights: 0, days: 1 },
+    bestFor: ['Adventure seekers', 'History lovers', 'Active travelers'],
+    difficulty: 'moderate',
+    highlights: [
+      'Sigiriya Rock Fortress ascent',
+      'Dambulla Cave Temple frescoes and statues',
+      'Village tour with local food and catamaran ride'
+    ],
+    itinerary: [
+      { day: 1, title: 'Sigiriya & Dambulla', timeframe: '8:00 AM - 6:00 PM', description: 'Start at Dambulla Cave Temple, then climb Sigiriya Rock Fortress and see the frescoes. Wrap with a village tour featuring local cooking, bullock cart, and catamaran rides.' }
+    ],
+    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
+    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
+    heroImage: '/preview images/AdobeStock_186145375_Preview.jpeg',
+    galleryImages: []
   }
 ];
 

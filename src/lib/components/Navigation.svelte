@@ -48,6 +48,12 @@
             {link.label}
           </a>
         {/each}
+        <a
+          href="/tours"
+          class="px-3 py-2 rounded-full bg-black text-white text-xs font-semibold hover:bg-gray-800 transition-colors"
+        >
+          Browse tours
+        </a>
       </div>
       <button 
         class="md:hidden p-2 text-gray-700 hover:text-gray-900"
@@ -78,6 +84,13 @@
               {link.label}
             </a>
           {/each}
+          <a
+            href="/tours"
+            class="inline-flex w-full items-center justify-center px-4 py-2 rounded-full bg-black text-white text-xs font-semibold hover:bg-gray-800 transition-colors"
+            on:click={closeMobileMenu}
+          >
+            Browse tours
+          </a>
         </div>
       </div>
     {/if}

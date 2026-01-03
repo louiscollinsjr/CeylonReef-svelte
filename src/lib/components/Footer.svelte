@@ -19,17 +19,17 @@
   ];
 </script>
 
-<footer class="bg-neutral-900 text-white">
+<footer class="bg-gray-50 text-gray-900 text-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <div>
         <div class="flex items-center gap-2 mb-6">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
+          <div class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center">
             <span class="text-white font-bold text-lg">CR</span>
           </div>
           <span class="font-semibold text-lg">Ceylon Reef Tours</span>
         </div>
-        <p class="text-neutral-400 mb-6">
+        <p class="text-gray-700 mb-6">
           Handcrafted journeys through Sri Lanka's most breathtaking destinations. Experience the real Sri Lanka with local guides.
         </p>
         <div class="flex gap-4">
@@ -38,7 +38,7 @@
               href={social.href} 
               target="_blank" 
               rel="noopener noreferrer"
-              class="w-10 h-10 rounded-full bg-neutral-800 hover:bg-primary-600 flex items-center justify-center transition-colors"
+              class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors text-gray-900"
               aria-label={social.label}
             >
               {#if social.icon === 'instagram'}
@@ -64,7 +64,7 @@
         <ul class="space-y-3">
           {#each quickLinks as link}
             <li>
-              <a href={link.href} class="text-neutral-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-gray-700 hover:text-gray-900 transition-colors">
                 {link.label}
               </a>
             </li>
@@ -77,7 +77,7 @@
         <ul class="space-y-3">
           {#each tourLinks as link}
             <li>
-              <a href={link.href} class="text-neutral-400 hover:text-white transition-colors">
+              <a href={link.href} class="text-gray-700 hover:text-gray-900 transition-colors">
                 {link.label}
               </a>
             </li>
@@ -87,21 +87,21 @@
 
       <div>
         <h4 class="font-semibold text-lg mb-6">Contact Us</h4>
-        <ul class="space-y-4 text-neutral-400">
+        <ul class="space-y-4 text-gray-700">
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 mt-0.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <a href="tel:+94777300852" class="hover:text-white transition-colors">+94 777 300 852</a>
+            <a href="tel:+94777300852" class="hover:text-gray-900 transition-colors">+94 777 300 852</a>
           </li>
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 mt-0.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <a href="mailto:hello@ceylonreeftours.com" class="hover:text-white transition-colors">hello@ceylonreeftours.com</a>
+            <a href="mailto:hello@ceylonreeftours.com" class="hover:text-gray-900 transition-colors">hello@ceylonreeftours.com</a>
           </li>
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 mt-0.5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 mt-0.5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Mon - Fri: 9:00 AM - 5:00 PM</span>
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div class="border-t border-neutral-800 mt-12 pt-8 text-center text-neutral-500 text-sm">
+    <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-600 text-sm">
       <p>&copy; {new Date().getFullYear()} Ceylon Reef Tours. All rights reserved.</p>
     </div>
   </div>

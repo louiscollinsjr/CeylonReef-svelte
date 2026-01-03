@@ -18,8 +18,8 @@
           Discover the Soul
           <span class="block leading-[0.9] -mt-3">of Sri Lanka</span>
         </h1>
-        <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
-          Handpicked cultural immersions, coastal escapes, and wild safaris guided by locals who know every hidden corner.
+        <p class="text-[1.4rem] text-gray-500 max-w-xl leading-relaxed">
+          Handpicked cultural immersions guided by locals who know every hidden corner.
         </p>
       </div>
       <div class="flex items-center justify-center gap-4">
@@ -32,14 +32,19 @@
     <div class="relative">
       <div class="relative aspect-[4/5] sm:aspect-[5/6] rounded-[28px] overflow-hidden shadow-2xl bg-gray-100">
         <img
-          src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1400&q=80"
+          src="/preview%20images/AdobeStock_428450204_Preview.jpeg"
           alt="Traditional dancers performing in Sri Lanka"
           class="h-full w-full object-cover"
           loading="lazy"
         />
       </div>
       <div class="absolute -right-4 -bottom-6 bg-white/90 backdrop-blur-md shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3 border border-gray-100">
-        <div class="h-10 w-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-700"></div>
+        <img
+          src="/images/profile01.jpg"
+          alt="Local host"
+          class="h-10 w-10 rounded-full object-cover"
+          loading="lazy"
+        />
         <div>
           <p class="text-sm font-semibold text-gray-900">Hosted experiences</p>
           <p class="text-xs text-gray-500">Trusted local experts</p>

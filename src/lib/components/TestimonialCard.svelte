@@ -4,7 +4,7 @@
   export let testimonial: Testimonial;
 </script>
 
-<div class="bg-white rounded-2xl p-8 shadow-lg">
+<div class="bg-gray-50 rounded-2xl p-8 shadow-sm">
   <div class="flex items-center gap-1 mb-4">
     {#each Array(5) as _}
       <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
@@ -13,17 +13,17 @@
     {/each}
   </div>
   
-  <blockquote class="text-neutral-700 text-lg mb-6 leading-relaxed">
+  <blockquote class="text-neutral-700 text-sm mb-6 leading-relaxed">
     "{testimonial.quote}"
   </blockquote>
   
   <div class="flex items-center gap-4">
-    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-semibold">
+    <!-- <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-semibold">
       {testimonial.name.charAt(0)}
-    </div>
-    <div>
+    </div> -->
+    <!-- <div>
       <p class="font-semibold text-neutral-900">{testimonial.name}</p>
       <p class="text-sm text-neutral-500">{testimonial.role}</p>
-    </div>
+    </div> -->
   </div>
 </div>
