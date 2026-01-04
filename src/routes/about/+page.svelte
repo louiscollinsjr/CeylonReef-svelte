@@ -37,49 +37,56 @@
 	<meta name="description" content="Learn about Ceylon Reef Tours - your trusted partner for authentic Sri Lankan travel experiences since 2008." />
 </svelte:head>
 
-<section class="pt-32 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-		<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+<section class="relative overflow-hidden bg-white pt-28 pb-16">
+	<div class="absolute inset-0 pointer-events-none">
+		<div class="h-32 w-32 bg-primary-200/30 rounded-full blur-3xl absolute -left-12 top-10"></div>
+		<div class="h-52 w-52 bg-neutral-200/45 rounded-full blur-3xl absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2"></div>
+	</div>
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-4 text-center">
+		<h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-[0.95] tracking-tight mb-4">
 			About Ceylon Reef Tours
 		</h1>
-		<p class="text-primary-100 text-lg max-w-2xl mx-auto">
-			Your trusted partner for authentic Sri Lankan adventures
+		<p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+			Handcrafted journeys across Sri Lanka with hosts who know every hidden corner.
 		</p>
 	</div>
 </section>
 
 <section class="py-16 bg-white">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-			<div>
-				<h2 class="text-3xl font-bold text-neutral-900 mb-6">Our Story</h2>
-				<div class="space-y-4 text-neutral-600 leading-relaxed">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+			<div class="space-y-6">
+				<h2 class="text-3xl font-semibold text-gray-900 leading-tight">Adventures That Touch the Soul</h2>
+				<div class="space-y-4 text-gray-600 leading-relaxed text-[15px]">
 					<p>
-						Ceylon Reef Tours was born from a simple belief: that the best way to experience Sri Lanka 
-						is through the eyes of those who call it home. Founded by a family with deep roots in 
-						Sri Lankan hospitality, we've spent over 15 years sharing our island's wonders with 
-						travelers from around the world.
+						Embark on a journey with Ceylon Reef Tours, where every experience is shaped with care, intention, and heart. We don't simply take you around Sri Lanka—we invite you to feel it, to connect with it, and to fall in love with it as deeply as we have.
 					</p>
 					<p>
-						What started as a small family operation has grown into a trusted tour company, but our 
-						values remain unchanged. We believe in small groups, personalized attention, and creating 
-						moments that transform a vacation into a life-changing experience.
+						This island is more than a destination to us. It has shaped who we are. In its ancient temples, prayers still echo through time. In its wild landscapes, nature moves freely and unapologetically. In the misty tea highlands, stories linger in every breeze. And in its people, you'll find a warmth and generosity that stays with you long after your journey ends.
 					</p>
 					<p>
-						Every guide in our team is a local expert, passionate about sharing the hidden gems, 
-						local cuisines, and untold stories that make Sri Lanka truly special. We don't just 
-						show you the sights—we help you feel the soul of our island.
+						We believe the most meaningful travel happens when you're guided by people who truly belong to the place they're showing you. Our guides don't recite rehearsed facts—they share lived experiences. They slow down where moments matter. They take you beyond the obvious, into hidden corners known only to those who have walked these paths for a lifetime.
+					</p>
+					<p class="italic text-gray-700">
+						Sri Lanka has a quiet way of touching the soul—if you let it. Let us show you how.
 					</p>
 				</div>
 			</div>
 			
 			<div class="relative">
-				<div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
-					<span class="text-white/30 text-8xl">📷</span>
+				<div class="aspect-[4/5] sm:aspect-[5/6] rounded-[28px] overflow-hidden shadow-2xl bg-gray-100">
+					<img
+						src="/preview%20images/AdobeStock_428450204_Preview.jpeg"
+						alt="Sri Lanka moments"
+						class="h-full w-full object-cover"
+						loading="lazy"
+					/>
 				</div>
-				<div class="absolute -bottom-6 -left-6 bg-accent-400 text-white p-6 rounded-2xl shadow-xl">
-					<p class="text-3xl font-bold">15+</p>
-					<p class="text-sm">Years of Excellence</p>
+				<div class="absolute -right-4 -bottom-6 bg-white/90 backdrop-blur-md shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3 border border-gray-100">
+					<div>
+						<p class="text-sm font-semibold text-gray-900">Hosts from here</p>
+						<p class="text-xs text-gray-500">Locals guiding every step</p>
+					</div>
 				</div>
 			</div>
 		</div>

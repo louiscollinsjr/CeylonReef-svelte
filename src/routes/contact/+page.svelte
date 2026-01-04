@@ -28,35 +28,39 @@
 	<meta name="description" content="Get in touch with Ceylon Reef Tours. Let us help plan your perfect Sri Lankan adventure." />
 </svelte:head>
 
-<section class="pt-32 pb-20 bg-gradient-to-br from-primary-600 to-primary-800">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-		<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+<section class="relative overflow-hidden bg-white pt-28 pb-16">
+	<div class="absolute inset-0 pointer-events-none">
+		<div class="h-32 w-32 bg-primary-200/25 rounded-full blur-3xl absolute -left-12 top-10"></div>
+		<div class="h-56 w-56 bg-neutral-200/45 rounded-full blur-3xl absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2"></div>
+	</div>
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-4 text-center">
+		<h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-[0.95] tracking-tight mb-4">
 			Let's Plan Your Adventure
 		</h1>
-		<p class="text-primary-100 text-lg max-w-2xl mx-auto">
-			Get in touch and we'll help craft your perfect Sri Lankan journey
+		<p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+			Share your plans and we'll tailor a Sri Lankan journey with hosts who know every hidden corner.
 		</p>
 	</div>
 </section>
 
 <section class="py-16 bg-white">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-			<div>
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
+			<div class="bg-white border border-neutral-200 rounded-2xl shadow-sm p-8 lg:p-10">
 				{#if formStatus === 'success'}
-					<div class="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-						<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+					<div class="text-center space-y-4">
+						<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
 							<svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
 							</svg>
 						</div>
-						<h3 class="text-xl font-semibold text-neutral-900 mb-2">Thank You!</h3>
+						<h3 class="text-xl font-semibold text-neutral-900">Thank you!</h3>
 						<p class="text-neutral-600">We've received your inquiry and will be in touch within 24 hours.</p>
 					</div>
 				{:else}
-					<form onsubmit={handleSubmit} class="space-y-6">
-						<div>
-							<label for="name" class="block text-sm font-medium text-neutral-700 mb-2">
+					<form onsubmit={handleSubmit} class="space-y-5">
+						<div class="text-left">
+							<label for="name" class="block text-sm font-medium text-neutral-800 mb-2">
 								Full Name <span class="text-red-500">*</span>
 							</label>
 							<input
@@ -64,13 +68,13 @@
 								id="name"
 								bind:value={formData.name}
 								required
-								class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+								class="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors bg-white"
 								placeholder="Your full name"
 							/>
 						</div>
 
-						<div>
-							<label for="email" class="block text-sm font-medium text-neutral-700 mb-2">
+						<div class="text-left">
+							<label for="email" class="block text-sm font-medium text-neutral-800 mb-2">
 								Email Address <span class="text-red-500">*</span>
 							</label>
 							<input
@@ -78,13 +82,13 @@
 								id="email"
 								bind:value={formData.email}
 								required
-								class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+								class="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors bg-white"
 								placeholder="your@email.com"
 							/>
 						</div>
 
-						<div>
-							<label for="phone" class="block text-sm font-medium text-neutral-700 mb-2">
+						<div class="text-left">
+							<label for="phone" class="block text-sm font-medium text-neutral-800 mb-2">
 								Phone Number <span class="text-red-500">*</span>
 							</label>
 							<input
@@ -92,19 +96,19 @@
 								id="phone"
 								bind:value={formData.phone}
 								required
-								class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-								placeholder="+1 234 567 8900"
+								class="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors bg-white"
+								placeholder="+94 777 300 852"
 							/>
 						</div>
 
-						<div>
-							<label for="tour" class="block text-sm font-medium text-neutral-700 mb-2">
+						<div class="text-left">
+							<label for="tour" class="block text-sm font-medium text-neutral-800 mb-2">
 								Tour of Interest
 							</label>
 							<select
 								id="tour"
 								bind:value={formData.tour}
-								class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+								class="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors bg-white"
 							>
 								<option value="">Select a tour (optional)</option>
 								{#each tours as tour}
@@ -113,35 +117,35 @@
 							</select>
 						</div>
 
-						<div>
-							<label for="message" class="block text-sm font-medium text-neutral-700 mb-2">
+						<div class="text-left">
+							<label for="message" class="block text-sm font-medium text-neutral-800 mb-2">
 								Message
 							</label>
 							<textarea
 								id="message"
 								bind:value={formData.message}
 								rows="4"
-								class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+								class="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors bg-white resize-none"
 								placeholder="Tell us about your travel plans, preferences, or any questions..."
 							></textarea>
 						</div>
 
-						<div class="flex items-start gap-3">
+						<div class="flex items-start gap-3 text-left">
 							<input
 								type="checkbox"
 								id="consent"
 								bind:checked={formData.consent}
 								required
-								class="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-500"
+								class="mt-1 w-4 h-4 text-primary-600 border-neutral-300 rounded focus:ring-primary-600"
 							/>
-							<label for="consent" class="text-sm text-neutral-600">
+							<label for="consent" class="text-sm text-neutral-700">
 								I agree to be contacted regarding my inquiry <span class="text-red-500">*</span>
 							</label>
 						</div>
 
 						<Button 
 							variant="primary" 
-							size="lg" 
+							size="md" 
 							fullWidth 
 							disabled={formStatus === 'submitting'}
 						>
@@ -151,16 +155,16 @@
 				{/if}
 			</div>
 
-			<div class="space-y-8">
-				<div class="bg-neutral-50 rounded-2xl p-8">
-					<h3 class="text-xl font-semibold text-neutral-900 mb-6">Other Ways to Reach Us</h3>
+			<div class="space-y-6">
+				<div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
+					<h3 class="text-lg font-semibold text-neutral-900 mb-5">Reach us directly</h3>
 					
-					<div class="space-y-6">
+					<div class="space-y-4">
 						<a 
 							href="https://wa.me/94777300852?text=Hello, I'm interested in your tours."
 							target="_blank"
 							rel="noopener noreferrer"
-							class="flex items-center gap-4 p-4 bg-green-50 rounded-xl hover:bg-green-100 transition-colors"
+							class="flex items-center gap-4 p-4 rounded-xl border border-neutral-100 hover:border-neutral-200 transition-colors"
 						>
 							<div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
 								<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -173,9 +177,9 @@
 							</div>
 						</a>
 
-						<div class="flex items-center gap-4 p-4">
-							<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-								<svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<div class="flex items-center gap-4 p-4 rounded-xl border border-neutral-100">
+							<div class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center">
+								<svg class="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
 								</svg>
 							</div>
@@ -185,9 +189,9 @@
 							</div>
 						</div>
 
-						<div class="flex items-center gap-4 p-4">
-							<div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-								<svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<div class="flex items-center gap-4 p-4 rounded-xl border border-neutral-100">
+							<div class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center">
+								<svg class="w-6 h-6 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
 								</svg>
 							</div>
@@ -199,8 +203,8 @@
 					</div>
 				</div>
 
-				<div class="bg-neutral-50 rounded-2xl p-8">
-					<h3 class="text-xl font-semibold text-neutral-900 mb-4">Office Hours</h3>
+				<div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
+					<h3 class="text-lg font-semibold text-neutral-900 mb-4">Office Hours</h3>
 					<div class="space-y-2 text-neutral-600">
 						<div class="flex justify-between">
 							<span>Monday - Friday</span>

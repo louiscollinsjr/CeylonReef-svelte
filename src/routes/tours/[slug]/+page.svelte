@@ -9,16 +9,6 @@
 	const tour = $derived(data.tour);
 	const testimonials = $derived(getTestimonialsByTour(data.tour.id));
 
-	let expandedDays = $state<Set<number>>(new Set([1]));
-
-	function toggleDay(day: number) {
-		if (expandedDays.has(day)) {
-			expandedDays.delete(day);
-		} else {
-			expandedDays.add(day);
-		}
-		expandedDays = new Set(expandedDays);
-	}
 </script>
 
 <svelte:head>
@@ -26,41 +16,72 @@
 	<meta name="description" content={tour.shortDescription} />
 </svelte:head>
 
-<section class="relative pt-32 pb-20 bg-gradient-to-br from-primary-600 to-primary-800 overflow-hidden">
-	<div class="absolute inset-0 bg-black/20"></div>
-	<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex items-center gap-2 mb-4">
-			<a href="/tours" class="text-primary-200 hover:text-white transition-colors">Tours</a>
-			<span class="text-primary-300">/</span>
-			<span class="text-white">{tour.shortTitle}</span>
-		</div>
-		
-		<span class="inline-block px-3 py-1 rounded-full text-sm font-medium {categoryColors[tour.category]} mb-4">
-			{categoryLabels[tour.category]}
-		</span>
-		
-		<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-			{tour.title}
-		</h1>
-		
-		<div class="flex flex-wrap gap-6 text-white/90 mt-8">
-			<div class="flex items-center gap-2">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-				</svg>
-				<span>{tour.duration.nights} Nights / {tour.duration.days} Days</span>
+<section class="py-20 bg-white">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+			<div class="grid grid-cols-2 gap-1 rounded-sm overflow-hidden">
+				{#each (tour.galleryImages?.length ? tour.galleryImages.slice(0, 4) : Array(4).fill(tour.heroImage || '/preview%20images/AdobeStock_428450204_Preview.jpeg')) as image, idx}
+					<div class="overflow-hidden rounded-lg aspect-[4/3] bg-gray-100">
+						<img src={image} alt={`Gallery image ${idx + 1} for ${tour.title}`} class="h-full w-full object-cover" loading="lazy" />
+					</div>
+				{/each}
 			</div>
-			<div class="flex items-center gap-2">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-				</svg>
-				<span class="capitalize">{tour.difficulty}</span>
-			</div>
-			<div class="flex items-center gap-2">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-				</svg>
-				<span>From ${tour.price.toLocaleString()}</span>
+
+			<div class="space-y-6 text-center">
+				
+				<!-- <div class="inline-flex px-3 py-1 rounded-full text-sm font-medium text-gray-700 bg-gray-100">
+					{categoryLabels[tour.category]}
+				</div> -->
+
+				<div class="text-sm text-gray-500 flex items-center gap-2 justify-center">
+					<a href="/tours" class="hover:text-gray-800 transition-colors">Tours</a>
+					<span>/</span>
+					<span class="text-gray-800">{tour.shortTitle}</span>
+				</div>
+
+				<div class="space-y-7 text-center max-w-md mx-auto">
+					<h1 class="text-4xl md:text-4xl font-semibold text-gray-900 leading-tight">
+						{tour.shortTitle}
+					</h1>
+					<p class="text-gray-600 text-[15px] leading-relaxed max-w-md">
+						{tour.shortDescription}
+					</p>
+				</div>
+
+				<div class="flex flex-wrap gap-6 text-gray-800 justify-center">
+					<div class="flex items-center gap-2 text-sm">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+						<span>{tour.duration.nights} Nights / {tour.duration.days} Days</span>
+					</div>
+					<div class="flex items-center gap-2 text-sm">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+						<span class="capitalize">{tour.difficulty}</span>
+					</div>
+					<div class="flex items-center gap-2 text-sm">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+						<span>From ${tour.price.toLocaleString()}</span>
+					</div>
+				</div>
+
+				<div class="flex flex-col sm:flex-row gap-3 justify-center">
+					<Button href="/contact?tour={tour.slug}" variant="primary" size="md" className="!rounded-full">
+						Inquire Now
+					</Button>
+					<a 
+						href="https://wa.me/94777300852?text=Hi, I'm interested in the {encodeURIComponent(tour.title)} tour."
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-gray-300 text-gray-900 text-sm font-semibold hover:bg-gray-50 transition-colors"
+					>
+						Chat on WhatsApp
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -85,7 +106,7 @@
 				</div>
 
 				<h3 class="text-xl font-semibold text-neutral-900 mb-4">Highlights</h3>
-				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
 					{#each tour.highlights as highlight}
 						<div class="flex items-start gap-3">
 							<svg class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,10 +116,30 @@
 						</div>
 					{/each}
 				</div>
+
+				<h3 class="text-xl font-semibold text-neutral-900 mb-6">Day-by-Day Itinerary</h3>
+				<div class="space-y-6">
+					{#each tour.itinerary as day}
+						<div class="flex items-start gap-8 pb-6  last:border-0">
+							<div class="w-24 h-24 rounded-2xl bg-neutral-100 flex items-center justify-center text-neutral-500 font-semibold text-sm flex-shrink-0">
+								Day {day.day}
+							</div>
+							<div class="space-y-1 pt-1">
+								<h4 class="font-normal text-black leading-snug text-sm">Day {day.day} – {day.title}</h4>
+								<p class="text-neutral-600 leading-relaxed text-sm md:text-sm line-clamp-3 max-w-lg">
+									{day.description} 
+								</p>
+								<!-- {#if day.timeframe}
+									<p class="text-xs text-neutral-500">{day.timeframe}</p>
+								{/if} -->
+							</div>
+						</div>
+					{/each}
+				</div>
 			</div>
 
 			<div class="lg:col-span-1">
-				<div class="sticky top-24 bg-neutral-50 rounded-2xl p-6">
+				<div class="sticky top-28 bg-white rounded-2xl p-6 shadow-2xl">
 					<div class="text-center mb-6">
 						<span class="text-sm text-neutral-500">Starting from</span>
 						<p class="text-4xl font-bold text-primary-600">${tour.price.toLocaleString()}</p>
@@ -132,63 +173,17 @@
 	</div>
 </section>
 
-<section class="py-16 bg-neutral-50">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-2xl font-bold text-neutral-900 mb-8">Day-by-Day Itinerary</h2>
-		
-		<div class="space-y-4">
-			{#each tour.itinerary as day}
-				<div class="bg-white rounded-xl overflow-hidden shadow-sm">
-					<button
-						class="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-neutral-50 transition-colors"
-						onclick={() => toggleDay(day.day)}
-					>
-						<div class="flex items-center gap-4">
-							<span class="w-10 h-10 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-semibold">
-								{day.day}
-							</span>
-							<div>
-								<h3 class="font-semibold text-neutral-900">{day.title}</h3>
-								<span class="text-sm text-neutral-500">{day.timeframe}</span>
-							</div>
-						</div>
-						<svg 
-							class="w-5 h-5 text-neutral-400 transition-transform {expandedDays.has(day.day) ? 'rotate-180' : ''}" 
-							fill="none" 
-							stroke="currentColor" 
-							viewBox="0 0 24 24"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-						</svg>
-					</button>
-					
-					{#if expandedDays.has(day.day)}
-						<div class="px-6 pb-6 pt-2">
-							<p class="text-neutral-600 leading-relaxed pl-14">
-								{day.description}
-							</p>
-						</div>
-					{/if}
-				</div>
-			{/each}
-		</div>
-	</div>
-</section>
-
-<section class="py-16 bg-white">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<div class="bg-green-50 rounded-2xl p-8">
+<section class="py-16 bg-white ">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-neutral-100 pt-12 ">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+			<div class="bg-gray-50 rounded-2xl p-8">
 				<h3 class="text-xl font-semibold text-neutral-900 mb-6 flex items-center gap-2">
-					<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-					</svg>
 					What's Included
 				</h3>
 				<ul class="space-y-3">
 					{#each tour.inclusions as item}
 						<li class="flex items-start gap-3">
-							<svg class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
 							</svg>
 							<span class="text-neutral-700">{item}</span>
@@ -197,11 +192,9 @@
 				</ul>
 			</div>
 
-			<div class="bg-red-50 rounded-2xl p-8">
+			<div class="bg-red-0 rounded-2xl p-8">
 				<h3 class="text-xl font-semibold text-neutral-900 mb-6 flex items-center gap-2">
-					<svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-					</svg>
+					
 					What's Not Included
 				</h3>
 				<ul class="space-y-3">
@@ -219,7 +212,7 @@
 	</div>
 </section>
 
-{#if testimonials.length > 0}
+<!-- {#if testimonials.length > 0}
 	<section class="py-16 bg-neutral-50">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<h2 class="text-2xl font-bold text-neutral-900 mb-8">What Travelers Say</h2>
@@ -230,7 +223,7 @@
 			</div>
 		</div>
 	</section>
-{/if}
+{/if} -->
 
 <section class="py-16 bg-gradient-to-br from-primary-600 to-primary-800">
 	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

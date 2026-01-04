@@ -5,7 +5,7 @@
 <section class="relative overflow-hidden bg-white">
   <div class="absolute inset-0 pointer-events-none">
     <div class="h-32 w-32 bg-primary-200/30 rounded-full blur-3xl absolute -left-10 top-10"></div>
-    <div class="h-40 w-40 bg-primary-300/25 rounded-full blur-3xl absolute right-4 bottom-4"></div>
+    <div class="h-52 w-52 bg-neutral-200/45 rounded-full blur-3xl absolute left-1/2 top-[65%] -translate-x-1/2 -translate-y-1/2"></div>
   </div>
 
   <div class="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-4 pt-24 pb-16 md:pt-28 md:pb-20 grid md:grid-cols-[1.1fr_1fr] items-center gap-12 md:gap-48 text-center">

@@ -5,6 +5,13 @@
 	let selectedCategory = $state('all');
 
 	const categories = ['all', 'cultural', 'wildlife', 'honeymoon', 'adventure'];
+	const categoryIcons: Record<string, string> = {
+		all: '/filter_icons/All_Tours.svg',
+		cultural: '/filter_icons/cutural.svg',
+		wildlife: '/filter_icons/wildlife.svg',
+		honeymoon: '/filter_icons/honeymoon.svg',
+		adventure: '/filter_icons/adventure.svg'
+	};
 
 	const filteredTours = $derived(
 		selectedCategory === 'all' 
@@ -30,16 +37,27 @@
 </section>
 
 <section class="py-16 bg-white">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-		<div class="flex flex-wrap justify-center gap-3 mb-12 ">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12 justify-items-center max-w-2xl mx-auto border-b pb-6">
 			{#each categories as category}
 				<button
-					class="px-5 py-2 rounded-full font-medium transition-all duration-200 {selectedCategory === category 
-						? 'bg-primary-600 text-white shadow-lg' 
-						: 'bg-white text-neutral-600 hover:bg-neutral-100 shadow'}"
+					class={`group w-full max-w-[140px] flex flex-col items-center gap-2 rounded-2xl border-none transition-all duration-200 p-3 ${
+						selectedCategory === category
+							? 'border-gray-800'
+							: ' hover:border-gray-300 hover:shadow-sm bg-white'
+					}`}
 					onclick={() => selectedCategory = category}
 				>
-					{category === 'all' ? 'All Tours' : categoryLabels[category]}
+					<div class={`w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden ${
+						selectedCategory === category ? 'ring-2 ring-orange-500' : ''
+					}`}>
+						<img src={categoryIcons[category]} alt={category} class="w-12 h-12 object-contain" />
+					</div>
+					<span class={`text-xs font-normal ${
+						selectedCategory === category ? 'text-orange-500' : 'text-gray-600 group-hover:text-gray-800'
+					}`}>
+						{category === 'all' ? 'All Tours' : categoryLabels[category]}
+					</span>
 				</button>
 			{/each}
 		</div>
