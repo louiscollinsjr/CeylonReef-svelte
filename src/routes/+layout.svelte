@@ -12,7 +12,7 @@
 	<meta name="description" content="Handcrafted journeys through Sri Lanka's most breathtaking destinations. Experience ancient temples, pristine beaches, and incredible wildlife with local guides." />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <Navigation />

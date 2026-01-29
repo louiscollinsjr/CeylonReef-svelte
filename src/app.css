@@ -126,6 +126,6 @@
   h4,
   h5,
   h6 {
-    font-family: 'Playfair Display', 'Archivo', 'Times New Roman', serif;
+    font-family: 'Figtree', 'Inter', 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
