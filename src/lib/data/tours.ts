@@ -31,6 +31,7 @@ export interface Tour {
   title: string;
   shortTitle: string;
   category: 'cultural' | 'wildlife' | 'honeymoon' | 'adventure';
+  categories: ('cultural' | 'wildlife' | 'honeymoon' | 'adventure')[];
   description: string;
   shortDescription: string;
   price: number;
@@ -56,371 +57,462 @@ export interface Tour {
 
 export const tours: Tour[] = [
   {
-    id: 'tour-1',
-    slug: '9-day-cultural-circuit',
-    title: '09 Nights 10 Days Cultural Circuit',
-    shortTitle: 'Cultural Circuit',
+    id: 'tour-ancient-wonders-7d',
+    slug: 'ancient-wonders-escape-7d',
+    title: 'Ancient Wonders Escape | 7 Days / 6 Nights',
+    shortTitle: 'Ancient Wonders Escape',
     category: 'cultural',
-    description: 'Welcome to our 10-day tour of Sri Lanka, an incredible journey that showcases the island\'s diverse beauty, rich heritage, and unforgettable experiences. From the ancient ruins of Sigiriya to the serene beaches of Mirissa, this tour covers the best of Sri Lanka.',
-    shortDescription: 'Experience the best of Sri Lanka\'s cultural heritage, from ancient temples to colonial architecture.',
-    price: 2400,
+    categories: ['cultural'],
+    description:
+      'Discover Sri Lanka’s ancient culture and heritage on a 7-day journey through kingdoms, temples, and UNESCO sites across the island’s heartland.',
+    shortDescription: 'Negombo • Dambulla • Sigiriya • Polonnaruwa • Kandy • Colombo',
+    price: 0,
     currency: 'USD',
-    duration: { nights: 9, days: 10 },
-    bestFor: ['First-timers', 'Culture enthusiasts', 'History buffs'],
-    difficulty: 'moderate',
-    highlights: [
-      'Climb the iconic Sigiriya Lion Rock',
-      'Explore Dambulla Cave Temple',
-      'Visit the Temple of the Tooth in Kandy',
-      'Scenic train ride through tea country',
-      'Safari at Yala National Park',
-      'Whale watching in Mirissa'
-    ],
-    itinerary: [
-      { day: 1, title: 'Arrival in Negombo', timeframe: '10:00 AM - 10:00 PM', description: 'Upon your arrival at the airport, our representative will warmly welcome you. From there, we\'ll head to the charming coastal town of Negombo. Explore the fish market, the Dutch canal, and St. Mary\'s Church. Relax and unwind at your hotel.' },
-      { day: 2, title: 'Sigiriya Exploration', timeframe: '10:00 AM - 9:00 PM', description: 'After breakfast, journey to Sigiriya. Visit the iconic Dambulla Cave Temple, a UNESCO World Heritage site. In the afternoon, immerse yourself in the majestic Sigiriya Lion Rock. Experience local village life with a bullock cart ride and catamaran ride.' },
-      { day: 3, title: 'More of Sigiriya', timeframe: '11:00 AM - 8:00 PM', description: 'Visit the majestic Sigiriya Lion Rock and witness the ancient ruins built by King Kasyapa. Embark on a village tour with traditional Sri Lankan lunch. In the afternoon, enjoy a thrilling safari at Minneriya or Hurulu National Park.' },
-      { day: 4, title: 'Journey to Kandy', timeframe: '9:00 AM - 9:00 PM', description: 'Head to the picturesque city of Kandy, stopping by Nalanda Gedige and a spice garden in Matale. Visit the sacred Temple of the Tooth Relic, explore Kandy View Point, and experience a captivating cultural dance show.' },
-      { day: 5, title: 'Enchanting Nuwara Eliya', timeframe: 'Full Day', description: 'Drive to Nuwara Eliya, the "Little England" of Sri Lanka. Visit a tea factory, enjoy tea cultivation in beautiful estates, and take in the picturesque view of Ramboda Waterfalls. Explore Gregory Lake and the charming city.' },
-      { day: 6, title: 'Beautiful Ella', timeframe: 'Full Day', description: 'Head to Ella, stopping by Moon Plains. Enjoy an unforgettable train journey from Nanuoya to Ella with stunning views. Hike up Little Adam\'s Peak and visit the iconic Nine Arch Bridge.' },
-      { day: 7, title: 'Wildlife Adventure in Yala', timeframe: 'Full Day', description: 'Drive to Yala, famous for wildlife encounters. Explore Seetha Cave and prepare for an exciting jungle safari in Yala National Park, known for its abundant leopard population.' },
-      { day: 8, title: 'Relaxing Mirissa', timeframe: 'Full Day', description: 'Proceed to the serene beaches of Mirissa. Spend the evening relaxing on the sandy shores and enjoying the coastal atmosphere.' },
-      { day: 9, title: 'Whales and Dolphins', timeframe: '6:00 AM onwards', description: 'Early morning whale and dolphin watching tour. Spend the rest of the day relaxing on the pristine Mirissa beach.' },
-      { day: 10, title: 'Departure', timeframe: 'Morning', description: 'Transfer to the airport for your departure flight. Farewell to beautiful Sri Lanka!' }
-    ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
-    heroImage: '/images/tours/cultural-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['heritage', 'coast', 'culture'],
-    locations: ['Negombo', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Mirissa'],
-    images: [
-      {
-        id: 'img-1',
-        url: '/images/tours/cultural-hero.jpg',
-        alt: 'Sigiriya at sunrise',
-        tags: ['sigiriya', 'day-2', 'heritage'],
-        scope: 'day',
-        day: 2,
-        location: 'Sigiriya'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-1',
-        name: 'Sarah Mitchell',
-        role: 'From United Kingdom',
-        rating: 5,
-        quote: 'Sunrise at Sigiriya and the cultural stops made this unforgettable.',
-        tourId: 'tour-1',
-        date: '2024-08-12'
-      }
-    ]
-  },
-  {
-    id: 'tour-2',
-    slug: '11-day-round-tour',
-    title: '10 Nights 11 Days Round Tour',
-    shortTitle: 'Complete Round Tour',
-    category: 'adventure',
-    description: 'Welcome to our 11-day tour of Sri Lanka, a journey that will take you through the best of our beautiful island\'s culture, nature, and heritage. Experience everything from ancient temples to pristine rainforests.',
-    shortDescription: 'The ultimate Sri Lanka experience covering culture, wildlife, beaches, and rainforests.',
-    price: 2800,
-    currency: 'USD',
-    duration: { nights: 10, days: 11 },
-    bestFor: ['Adventure seekers', 'Nature lovers', 'Complete experience'],
-    difficulty: 'moderate',
-    highlights: [
-      'Sigiriya Lion Rock UNESCO site',
-      'Jungle safari at Hurulu Eco Park',
-      'Scenic train journey to Ella',
-      'Yala National Park wildlife',
-      'Sinharaja Rainforest trekking',
-      'Historic Galle Dutch Fort'
-    ],
-    itinerary: [
-      { day: 1, title: 'Arrival in Negombo', timeframe: 'Evening', description: 'Welcome to Sri Lanka! Upon arrival, transfer to Negombo. Explore the vibrant fish market and serene Dutch canal. Unwind on the stunning beach.' },
-      { day: 2, title: 'Discovering Sigiriya', timeframe: 'Full Day', description: 'Head to iconic Sigiriya. Visit the magnificent Dambulla Golden Temple. Experience rural charm with a village tour including traditional lunch, bullock cart and catamaran riding.' },
-      { day: 3, title: 'Sigiriya Adventure', timeframe: 'Full Day', description: 'Visit the majestic Sigiriya Lion Rock, a UNESCO World Heritage site. Evening jungle safari at Hurulu Eco Park to witness elephants in their natural habitat.' },
-      { day: 4, title: 'Journey to Kandy', timeframe: 'Full Day', description: 'Drive to charming Kandy. Visit Nalanda Gedige, an intriguing ancient architectural site. Witness a captivating cultural dance show and explore the Temple of the Tooth Relic.' },
-      { day: 5, title: 'Scenic Nuwara Eliya', timeframe: 'Full Day', description: 'Proceed to Nuwara Eliya, a picturesque hill station. Visit the gem museum and wood carving places. Enjoy scenic tea plantations and visit a tea factory.' },
-      { day: 6, title: 'Horton Plains and Gregory Lake', timeframe: 'Full Day', description: 'Early morning visit to enchanting Horton Plains. Take in the breathtaking beauty and later visit Gregory Lake to unwind.' },
-      { day: 7, title: 'Stunning Ella', timeframe: 'Full Day', description: 'Head to charming Ella. Enjoy the scenic train journey from Nuwara Eliya to Ella, one of the most beautiful railway tracks in Asia. Visit Little Adam\'s Peak.' },
-      { day: 8, title: 'Wildlife in Yala', timeframe: 'Full Day', description: 'Drive to Yala. Visit the iconic Nine Arch Bridge and Ravana Waterfall. Afternoon jungle safari in Yala National Park.' },
-      { day: 9, title: 'Tranquil Sinharaja', timeframe: 'Full Day', description: 'Head to the serene Sinharaja rainforest. Check-in to your lodge and relax amidst nature\'s beauty.' },
-      { day: 10, title: 'Exploring Galle', timeframe: 'Full Day', description: 'Morning trekking adventure in Sinharaja rainforest. Later, drive to historic Galle and visit the iconic Dutch Fort.' },
-      { day: 11, title: 'Departure', timeframe: 'Morning', description: 'Transfer to the airport for your departure. Safe travels!' }
-    ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
-    heroImage: '/images/tours/adventure-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['culture', 'wildlife', 'coast'],
-    locations: ['Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle'],
-    images: [
-      {
-        id: 'img-2',
-        url: '/images/tours/adventure-hero.jpg',
-        alt: 'Train in tea country',
-        tags: ['train', 'tea', 'day-7'],
-        scope: 'day',
-        day: 7,
-        location: 'Ella'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-2',
-        name: 'David Thompson',
-        role: 'From USA',
-        rating: 5,
-        quote: 'Covered everything we wanted—culture, wildlife, and beaches.',
-        tourId: 'tour-2',
-        date: '2024-07-05'
-      }
-    ]
-  },
-  {
-    id: 'tour-3',
-    slug: '9-day-wildlife-tour',
-    title: '08 Nights 09 Days Wildlife Tour',
-    shortTitle: 'Wildlife Adventure',
-    category: 'wildlife',
-    description: 'Welcome to the beautiful island of Sri Lanka! This 08 Nights/09 Days tour explores the best of Sri Lanka\'s cultural and natural wonders with a focus on incredible wildlife experiences.',
-    shortDescription: 'Get up close with leopards, elephants, whales, and dolphins on this wildlife-focused adventure.',
-    price: 2200,
-    currency: 'USD',
-    duration: { nights: 8, days: 9 },
-    bestFor: ['Wildlife enthusiasts', 'Photography lovers', 'Nature seekers'],
-    difficulty: 'moderate',
-    highlights: [
-      'Minneriya National Park elephant gathering',
-      'Yala National Park leopard safari',
-      'Whale and dolphin watching',
-      'Scenic Ella train journey',
-      'Galle Fort exploration',
-      'Mirissa beach relaxation'
-    ],
-    itinerary: [
-      { day: 1, title: 'Arrival in Sigiriya', timeframe: '3:30 PM onwards', description: 'Upon arrival at the airport, transfer to Sigiriya (approximately 3.5 hours). Check in and relax after your journey.' },
-      { day: 2, title: 'Sigiriya Exploration', timeframe: 'Full Day', description: 'Visit Sigiriya Rock Fortress, a UNESCO World Heritage site. Experience traditional village life with a bullock cart ride. Afternoon Minneriya National Park Safari.' },
-      { day: 3, title: 'Transfer to Kandy', timeframe: 'Full Day', description: 'Depart for Kandy. Stop at Dambulla Cave Temple. Visit Kandy Lake, View Point, and Royal Botanical Garden. Evening Kandyan dance performance and Temple of the Tooth.' },
-      { day: 4, title: 'Journey to Nuwara Eliya', timeframe: 'Full Day', description: 'Head to Nuwara Eliya with stops at Ramboda waterfall and a Ceylon tea factory. Explore "Little England" including Lake Gregory Park and tea plantations.' },
-      { day: 5, title: 'Horton Plains and Ella Train', timeframe: '5:30 AM onwards', description: 'Early morning visit to Horton Plains for World\'s End and Baker\'s Falls. Scenic train journey to Ella from Nanu Oya station.' },
-      { day: 6, title: 'Ella\'s Charm', timeframe: 'Full Day', description: 'Explore the stunning Nine Arch Bridge, Ella Gap, and Ravana Falls. Transfer to Yala. Evening jeep safari at Yala National Park.' },
-      { day: 7, title: 'Galle Fort and Mirissa', timeframe: 'Full Day', description: 'Travel to Mirissa, stopping at Galle Fort. Discover Dondra Light House and stilt fishermen in Weligama. Enjoy the beach and water sports.' },
-      { day: 8, title: 'Whales and Dolphins', timeframe: '6:15 AM onwards', description: 'Whale and dolphin watching early morning. Relaxing day on beautiful Mirissa beach with optional water sports.' },
-      { day: 9, title: 'Departure', timeframe: 'Morning', description: 'Transfer to Colombo airport for departure. Thank you for choosing us!' }
-    ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
-    heroImage: '/images/tours/wildlife-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['wildlife', 'safari', 'coast'],
-    locations: ['Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle', 'Mirissa'],
-    images: [
-      {
-        id: 'img-3',
-        url: '/images/tours/wildlife-hero.jpg',
-        alt: 'Safari jeep in Yala',
-        tags: ['yala', 'safari', 'day-7'],
-        scope: 'day',
-        day: 7,
-        location: 'Yala'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-3',
-        name: 'Michael Chen',
-        role: 'From Australia',
-        rating: 5,
-        quote: 'Leopards, elephants, whales—spectacular wildlife focus.',
-        tourId: 'tour-3',
-        date: '2024-06-18'
-      }
-    ]
-  },
-  {
-    id: 'tour-4',
-    slug: '5-day-honeymoon',
-    title: '04 Nights 05 Days Honeymoon Tour',
-    shortTitle: 'Romantic Honeymoon',
-    category: 'honeymoon',
-    description: 'Welcome to our 5-day honeymoon tour in Sri Lanka, an enchanting journey filled with romantic experiences and breathtaking sights. We are dedicated to making your honeymoon a truly memorable and special occasion.',
-    shortDescription: 'A romantic getaway featuring beaches, elephants, tea country, and complimentary dinners.',
-    price: 1800,
-    currency: 'USD',
-    duration: { nights: 4, days: 5 },
-    bestFor: ['Couples', 'Honeymooners', 'Romantic getaway'],
+    duration: { nights: 6, days: 7 },
+    bestFor: ['First-time visitors', 'History lovers', 'Relaxed cultural travel'],
     difficulty: 'easy',
     highlights: [
-      'Romantic beach dinner in Negombo',
-      'Pinnawala Elephant Orphanage',
-      'Cultural dance show in Kandy',
-      'Tea plantation experience',
-      'White water rafting adventure',
-      'Madu River boat safari'
+      'Negombo Beach & Lagoon',
+      'Dambulla Cave Temple',
+      'Sigiriya Rock Fortress',
+      'Polonnaruwa Ancient City',
+      'Kandy Cultural Dance Show',
+      'Temple of the Sacred Tooth',
+      'Colombo leisure time'
     ],
     itinerary: [
-      { day: 1, title: 'Arrival in Negombo', timeframe: '10:00 AM - 10:00 PM', description: 'Upon arrival at Sri Lanka airport, transfer to the coastal paradise of Negombo. Relax on the picturesque beach. Enjoy a complimentary romantic dinner to start your honeymoon.' },
-      { day: 2, title: 'Discovering Kandy', timeframe: '10:00 AM - 9:00 PM', description: 'Journey to the cultural capital of Kandy. Visit Pinnawala Elephant Orphanage with optional elephant ride. Explore Kandy City, Kandy Lake, View Point, and cultural dance show. Complimentary dinner included.' },
-      { day: 3, title: 'Exploring Nuwara Eliya', timeframe: '11:00 AM - 8:00 PM', description: 'Set out for Nuwara Eliya, "Little England." Stop at Ramboda waterfall, tea plantation, and Tea Factory. Explore Lake Gregory Park, Golf Course, and Strawberry Farms. Complimentary dinner at your hotel.' },
-      { day: 4, title: 'Bentota Bliss', timeframe: '9:00 AM - 9:00 PM', description: 'Venture to coastal Bentota. Optional white-water rafting at Kithulgala. Visit a turtle hatchery and enjoy a Madu River boat safari. Complimentary dinner included.' },
-      { day: 5, title: 'Departure', timeframe: '9:00 AM - 5:00 PM', description: 'Transfer to Colombo airport for your departure. Congratulations on your special journey together!' }
+      { day: 1, title: 'Arrival | BIA to Negombo', timeframe: '', description: 'Arrive, meet your guide, transfer to Negombo and unwind by the beach.' },
+      { day: 2, title: 'Negombo to Dambulla', timeframe: '', description: 'Travel to Dambulla and explore the UNESCO-listed cave temple.' },
+      { day: 3, title: 'Sigiriya Icon', timeframe: '', description: 'Climb Sigiriya Rock Fortress and enjoy optional village experiences.' },
+      { day: 4, title: 'Polonnaruwa Heritage', timeframe: '', description: 'Discover the ancient city: Royal Palace, Gal Vihara, Sacred Quadrangle.' },
+      { day: 5, title: 'Spice Trails to Kandy', timeframe: '', description: 'Drive to Kandy via spice gardens; enjoy an evening cultural dance show.' },
+      { day: 6, title: 'Kandy to Colombo', timeframe: '', description: 'Visit the Temple of the Tooth, stroll Kandy Lake, markets, and gem museum.' },
+      { day: 7, title: 'Colombo & Departure', timeframe: '', description: 'Optional city tour and shopping before airport transfer or hotel drop.' }
     ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation', 'Complimentary Romantic Dinners'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
-    heroImage: '/images/tours/honeymoon-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['honeymoon', 'romantic', 'coast'],
-    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Bentota'],
-    images: [
-      {
-        id: 'img-4',
-        url: '/images/tours/honeymoon-hero.jpg',
-        alt: 'Romantic dinner on the beach',
-        tags: ['romance', 'dinner', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Negombo'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-4',
-        name: 'Emma & James Wilson',
-        role: 'From Canada',
-        rating: 5,
-        quote: 'Perfect honeymoon pacing with thoughtful romantic touches.',
-        tourId: 'tour-4',
-        date: '2024-05-10'
-      }
-    ]
-  },
-  {
-    id: 'tour-5',
-    slug: 'galle-city-tour',
-    title: 'Galle City Tour',
-    shortTitle: 'Galle City Day Tour',
-    category: 'cultural',
-    description: 'A one-day exploration of the UNESCO-listed Galle Fort, coastal vistas, and nearby beaches with boutique stops and lighthouse views.',
-    shortDescription: 'Explore Galle Fort, lighthouse views, beaches, and colonial streets in a single curated day.',
-    price: 59,
-    currency: 'USD',
-    duration: { nights: 0, days: 1 },
-    bestFor: ['Culture lovers', 'History buffs', 'First-timers'],
-    difficulty: 'easy',
-    highlights: [
-      'UNESCO Galle Fort ramparts and lighthouse',
-      'Boutiques, cafes, and Dutch Reformed Church',
-      'Jungle Beach and Unawatuna options nearby'
-    ],
-    itinerary: [
-      { day: 1, title: 'Galle City Day', timeframe: '8:00 AM - 6:00 PM', description: 'Walk the Galle Fort ramparts, visit the lighthouse, Dutch Reformed Church, Maritime Museum, and wander boutique-lined streets. Optional visits to Jungle Beach, Unawatuna, and the Japanese Peace Pagoda.' }
-    ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
-    heroImage: '/preview images/AdobeStock_202776698_Preview.jpeg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['galle', 'heritage', 'day-tour'],
-    locations: ['Galle'],
-    images: [
-      {
-        id: 'img-5',
-        url: '/preview images/AdobeStock_202776698_Preview.jpeg',
-        alt: 'Galle Lighthouse',
-        tags: ['galle', 'lighthouse', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Galle'
-      }
-    ],
-    reviews: []
-  },
-  {
-    id: 'tour-6',
-    slug: 'kandy-day-tour',
-    title: 'Kandy Day Tour',
-    shortTitle: 'Kandy Day Tour',
-    category: 'cultural',
-    description: 'A cultural day in the hill capital: Temple of the Tooth, lake stroll, gardens, viewpoints, and Kandyan dance.',
-    shortDescription: 'Temple of the Tooth, Peradeniya gardens, lake, and hilltop views in one curated Kandy day.',
-    price: 59,
-    currency: 'USD',
-    duration: { nights: 0, days: 1 },
-    bestFor: ['Culture enthusiasts', 'Photographers', 'Couples'],
-    difficulty: 'easy',
-    highlights: [
-      'Temple of the Tooth (UNESCO)',
-      'Peradeniya Botanical Gardens',
-      'Kandy Lake walk and city viewpoint'
-    ],
-    itinerary: [
-      { day: 1, title: 'Kandy Highlights', timeframe: '8:00 AM - 6:00 PM', description: 'Visit Temple of the Tooth, stroll Kandy Lake, explore Peradeniya Botanical Gardens, enjoy a cultural dance show, and climb to Bahirawakanda Big Buddha for city views.' }
-    ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
+    inclusions: [],
+    exclusions: [],
     heroImage: '/preview images/AdobeStock_322535378_Preview.jpeg',
     galleryImages: [],
     status: 'published',
-    tags: ['kandy', 'culture', 'day-tour'],
-    locations: ['Kandy'],
+    tags: ['heritage', 'unesco', 'culture'],
+    locations: ['Negombo', 'Dambulla', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Colombo'],
     images: [
       {
-        id: 'img-6',
+        id: 'img-ancient-7d-hero',
         url: '/preview images/AdobeStock_322535378_Preview.jpeg',
-        alt: 'Temple of the Tooth',
-        tags: ['kandy', 'temple', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Kandy'
+        alt: 'Sigiriya sunrise and cultural highlights',
+        tags: ['cultural', 'heritage'],
+        scope: 'tour'
       }
     ],
     reviews: []
   },
   {
-    id: 'tour-7',
-    slug: 'sigiriya-day-tour',
-    title: 'Sigiriya Day Tour',
-    shortTitle: 'Sigiriya Day Tour',
-    category: 'adventure',
-    description: 'A one-day loop to Sigiriya and Dambulla with village life, cave temples, and the iconic Lion Rock ascent.',
-    shortDescription: 'Climb Sigiriya, explore Dambulla caves, and experience village life in a single adventurous day.',
-    price: 59,
+    id: 'tour-sacred-heritage-9d',
+    slug: 'sacred-heritage-9d',
+    title: 'Sacred Heritage Tours | 9 Days / 8 Nights',
+    shortTitle: 'Sacred Heritage',
+    category: 'cultural',
+    categories: ['cultural'],
+    description:
+      'Explore Sri Lanka’s sacred culture and spiritual heritage on a relaxed 9-day guided tour across ancient capitals and revered Buddhist sites.',
+    shortDescription: 'Negombo • Anuradhapura • Mihintale • Sigiriya • Dambulla • Polonnaruwa • Kandy • Colombo',
+    price: 0,
     currency: 'USD',
-    duration: { nights: 0, days: 1 },
-    bestFor: ['Adventure seekers', 'History lovers', 'Active travelers'],
-    difficulty: 'moderate',
+    duration: { nights: 8, days: 9 },
+    bestFor: ['Culture lovers', 'Pilgrims', 'Slow travelers', 'First-time visitors'],
+    difficulty: 'easy',
     highlights: [
-      'Sigiriya Rock Fortress ascent',
-      'Dambulla Cave Temple frescoes and statues',
-      'Village tour with local food and catamaran ride'
+      'Sacred City of Anuradhapura',
+      'Mihintale birthplace of Buddhism',
+      'Dambulla Cave Temple',
+      'Sigiriya Rock Fortress',
+      'Polonnaruwa Ancient City',
+      'Kandy Cultural Dance & Temple of the Tooth',
+      'Colombo leisure time'
     ],
     itinerary: [
-      { day: 1, title: 'Sigiriya & Dambulla', timeframe: '8:00 AM - 6:00 PM', description: 'Start at Dambulla Cave Temple, then climb Sigiriya Rock Fortress and see the frescoes. Wrap with a village tour featuring local cooking, bullock cart, and catamaran rides.' }
+      { day: 1, title: 'Arrival | BIA to Negombo', timeframe: '', description: 'Arrival welcome and coastal unwind in Negombo.' },
+      { day: 2, title: 'To Anuradhapura', timeframe: '', description: 'Explore the Sacred City: Sri Maha Bodhi, Ruwanwelisaya, Jetavanaramaya.' },
+      { day: 3, title: 'Anuradhapura & Mihintale', timeframe: '', description: 'Continue ancient sites; climb Mihintale for sunset views.' },
+      { day: 4, title: 'Anuradhapura to Sigiriya', timeframe: '', description: 'Scenic transfer through rural villages; evening at leisure.' },
+      { day: 5, title: 'Sigiriya • Dambulla • Polonnaruwa', timeframe: '', description: 'Climb Sigiriya, visit Dambulla Cave Temple, and tour Polonnaruwa.' },
+      { day: 6, title: 'Sigiriya to Kandy', timeframe: '', description: 'Travel via spice garden; enjoy the Kandy Cultural Dance Show.' },
+      { day: 7, title: 'Kandy Sacred Sites', timeframe: '', description: 'Temple of the Tooth, Kandy Lake, markets, gem museum.' },
+      { day: 8, title: 'Kandy to Colombo', timeframe: '', description: 'Drive to Colombo for optional city tour and shopping.' },
+      { day: 9, title: 'Colombo to BIA', timeframe: '', description: 'Airport transfer; farewell Sri Lanka.' }
     ],
-    inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
-    exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/preview images/AdobeStock_191117435_Preview.jpeg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['sacred', 'culture', 'heritage'],
+    locations: ['Negombo', 'Anuradhapura', 'Mihintale', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Colombo'],
+    images: [
+      {
+        id: 'img-sacred-hero',
+        url: '/preview images/AdobeStock_218725059_Preview.jpeg',
+        alt: 'Anuradhapura stupas at dusk',
+        tags: ['heritage'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-legacy-12d',
+    slug: 'legacy-of-sri-lanka-12d',
+    title: 'Legacy of Sri Lanka | 12 Days / 11 Nights',
+    shortTitle: 'Legacy of Sri Lanka',
+    category: 'cultural',
+    categories: ['cultural'],
+    description:
+      'A complete 12-day cultural journey across Sri Lanka’s ancient civilizations, sacred heritage, hill country, and coastal charm.',
+    shortDescription: 'Negombo • Anuradhapura • Mihintale • Sigiriya • Dambulla • Polonnaruwa • Kandy • Nuwara Eliya • Ella • Galle • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 11, days: 12 },
+    bestFor: ['Culture enthusiasts', 'Long-stay travelers', 'Explorers'],
+    difficulty: 'moderate',
+    highlights: [
+      'Anuradhapura Sacred City',
+      'Mihintale',
+      'Sigiriya Rock Fortress',
+      'Dambulla Cave Temple',
+      'Polonnaruwa Ancient City',
+      'Temple of the Tooth & Kandy dance show',
+      'Tea country Nuwara Eliya',
+      'Scenic train to Ella',
+      'Galle Dutch Fort',
+      'Colombo leisure time'
+    ],
+    itinerary: [
+      { day: 1, title: 'Arrival | BIA to Negombo', timeframe: '', description: 'Meet and relax on the Negombo coast.' },
+      { day: 2, title: 'Negombo to Anuradhapura', timeframe: '', description: 'Explore the Sacred City including Sri Maha Bodhi and stupas.' },
+      { day: 3, title: 'Anuradhapura & Mihintale', timeframe: '', description: 'Continue key sites; sunset ascent at Mihintale.' },
+      { day: 4, title: 'Anuradhapura to Sigiriya', timeframe: '', description: 'Transfer via rural landscapes; evening at leisure.' },
+      { day: 5, title: 'Sigiriya • Dambulla • Polonnaruwa', timeframe: '', description: 'Sigiriya climb, Dambulla caves, Polonnaruwa royal complex.' },
+      { day: 6, title: 'Sigiriya to Kandy', timeframe: '', description: 'Spice garden visit; cultural dance show in Kandy.' },
+      { day: 7, title: 'Kandy Sacred & City', timeframe: '', description: 'Temple of the Tooth, lake walk, markets, gem museum.' },
+      { day: 8, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Scenic drive through tea country, plantations, and waterfalls.' },
+      { day: 9, title: 'Nuwara Eliya to Ella (Train)', timeframe: '', description: 'Hill-country train ride; explore Nine Arches Bridge and viewpoints.' },
+      { day: 10, title: 'Ella to Galle', timeframe: '', description: 'Drive south via waterfalls and coastal scenery.' },
+      { day: 11, title: 'Galle to Colombo', timeframe: '', description: 'Explore Galle Fort, then head to Colombo for leisure and shopping.' },
+      { day: 12, title: 'Colombo to BIA', timeframe: '', description: 'Departure transfer.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/preview images/AdobeStock_202776698_Preview.jpeg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['legacy', 'culture', 'heritage'],
+    locations: ['Negombo', 'Anuradhapura', 'Mihintale', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Nuwara Eliya', 'Ella', 'Galle', 'Colombo'],
+    images: [
+      {
+        id: 'img-legacy-hero',
+        url: '/preview images/AdobeStock_202776698_Preview.jpeg',
+        alt: 'Galle Fort sunset ramparts',
+        tags: ['heritage', 'long-stay'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-wild-trails-5d',
+    slug: 'wild-trails-of-sri-lanka-5d',
+    title: 'Wild Trails of Sri Lanka | 5 Days / 4 Nights',
+    shortTitle: 'Wild Trails of Sri Lanka',
+    category: 'adventure',
+    categories: ['adventure', 'wildlife'],
+    description:
+      'A 5-day adventure blending wildlife, waterfalls, hill country vistas, and coastal downtime for nature lovers and thrill seekers.',
+    shortDescription: 'Negombo • Pinnawala • Kandy • Nuwara Eliya • Yala • South Coast • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 4, days: 5 },
+    bestFor: ['Nature lovers', 'Wildlife enthusiasts', 'Adventure travelers'],
+    difficulty: 'moderate',
+    highlights: [
+      'Pinnawala Elephant Orphanage',
+      'Hill country waterfalls & tea',
+      'Yala National Park safari',
+      'South Coast beaches',
+      'Scenic drives across countryside',
+      'Colombo leisure time'
+    ],
+    itinerary: [
+      { day: 1, title: 'Negombo • Pinnawala • Kandy', timeframe: '', description: 'Arrive and visit Pinnawala Elephant Orphanage en route to Kandy.' },
+      { day: 2, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Travel through tea country, waterfalls, and a tea factory visit.' },
+      { day: 3, title: 'Nuwara Eliya to Yala', timeframe: '', description: 'Scenic drive south; afternoon Yala jeep safari.' },
+      { day: 4, title: 'Yala to South Coast', timeframe: '', description: 'Beach time or optional lagoon safaris and turtle hatchery visits.' },
+      { day: 5, title: 'South Coast to Colombo', timeframe: '', description: 'Morning by the beach, then Colombo city/shopping and departure.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/images/tours/adventure-hero.jpg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['wildlife', 'nature', 'beach'],
+    locations: ['Negombo', 'Pinnawala', 'Kandy', 'Nuwara Eliya', 'Yala', 'South Coast', 'Colombo'],
+    images: [
+      {
+        id: 'img-wild-trails-hero',
+        url: '/images/tours/adventure-hero.jpg',
+        alt: 'Yala safari jeep',
+        tags: ['adventure'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-hill-jungle-7d',
+    slug: 'hill-and-jungle-escapade-7d',
+    title: 'Hill & Jungle Escapade | 7 Days / 6 Nights',
+    shortTitle: 'Hill & Jungle Escapade',
+    category: 'adventure',
+    categories: ['adventure', 'wildlife'],
+    description:
+      'A 7-day blend of misty hills, scenic trains, jungles, wildlife, and beaches—perfect for photographers and outdoor seekers.',
+    shortDescription: 'Negombo • Kandy • Nuwara Eliya • Ella • Yala • South Coast • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 6, days: 7 },
+    bestFor: ['Nature lovers', 'Adventure seekers', 'Photographers'],
+    difficulty: 'moderate',
+    highlights: [
+      'Kandy nature and culture',
+      'Tea country vistas in Nuwara Eliya',
+      'Scenic hill-country train ride to Ella',
+      'Yala safari',
+      'South Coast beaches',
+      'Scenic drives and viewpoints'
+    ],
+    itinerary: [
+      { day: 1, title: 'Negombo to Kandy', timeframe: '', description: 'Arrive and head to Kandy for an easy evening amid green hills.' },
+      { day: 2, title: 'Kandy Day', timeframe: '', description: 'Nature walks, optional gardens or viewpoints around Kandy.' },
+      { day: 3, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Waterfalls, tea plantations, and tea factory experiences.' },
+      { day: 4, title: 'Nuwara Eliya to Ella (Train)', timeframe: '', description: 'Famous hill-country train to Ella; explore viewpoints.' },
+      { day: 5, title: 'Ella to Yala', timeframe: '', description: 'Drive to Yala and enjoy an afternoon safari.' },
+      { day: 6, title: 'Yala to South Coast', timeframe: '', description: 'Beach relaxation or optional nature-based activities.' },
+      { day: 7, title: 'South Coast to Colombo', timeframe: '', description: 'Morning beach time then depart for Colombo/airport.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/preview images/AdobeStock_1409646510_Preview.jpeg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['hills', 'train', 'safari'],
+    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'South Coast', 'Colombo'],
+    images: [
+      {
+        id: 'img-hill-jungle-hero',
+        url: '/preview images/AdobeStock_191117435_Preview.jpeg',
+        alt: 'Waterfall picnic in Ella',
+        tags: ['train', 'wildlife'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-ultimate-wild-10d',
+    slug: 'ultimate-wild-journey-10d',
+    title: 'The Ultimate Wild Journey | 10 Days / 9 Nights',
+    shortTitle: 'Ultimate Wild Journey',
+    category: 'adventure',
+    categories: ['adventure', 'wildlife'],
+    description:
+      'A 10-day immersive nature expedition across Sri Lanka’s mountains, scenic trains, jungles, rainforests, and beaches for true wildlife enthusiasts.',
+    shortDescription: 'Negombo • Kandy • Nuwara Eliya • Ella • Yala • Udawalawe • Sinharaja • South Coast • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 9, days: 10 },
+    bestFor: ['Wildlife enthusiasts', 'Adventure travelers', 'Photographers', 'Long-stay explorers'],
+    difficulty: 'moderate',
+    highlights: [
+      'Hill-country train to Ella',
+      'Yala leopard safari',
+      'Udawalawe elephant safari',
+      'Sinharaja Rainforest trekking (UNESCO)',
+      'South Coast beach finale',
+      'Scenic drives across the island'
+    ],
+    itinerary: [
+      { day: 1, title: 'Arrival | BIA to Negombo', timeframe: '', description: 'Arrive and unwind by the Negombo coast.' },
+      { day: 2, title: 'Negombo to Kandy', timeframe: '', description: 'Travel to Kandy through countryside; easy evening.' },
+      { day: 3, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Waterfalls, tea estates, and a tea factory visit.' },
+      { day: 4, title: 'Nuwara Eliya to Ella (Train)', timeframe: '', description: 'Scenic rail journey; explore Ella town and viewpoints.' },
+      { day: 5, title: 'Ella to Yala', timeframe: '', description: 'Transfer to Yala; afternoon safari for leopards and wildlife.' },
+      { day: 6, title: 'Yala to Udawalawe', timeframe: '', description: 'Drive to Udawalawe for an elephant-focused safari.' },
+      { day: 7, title: 'Udawalawe to Sinharaja', timeframe: '', description: 'Travel to Sinharaja Rainforest; evening at leisure in nature.' },
+      { day: 8, title: 'Sinharaja Rainforest', timeframe: '', description: 'Guided trek through endemic flora and fauna in the rainforest.' },
+      { day: 9, title: 'Sinharaja to South Coast', timeframe: '', description: 'Head to southern beaches to relax after the jungle.' },
+      { day: 10, title: 'South Coast to Colombo', timeframe: '', description: 'Morning beach time then depart for Colombo/airport.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/images/tours/wildlife-hero.jpg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['wildlife', 'rainforest', 'beach'],
+    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'Udawalawe', 'Sinharaja', 'South Coast', 'Colombo'],
+    images: [
+      {
+        id: 'img-ultimate-wild-hero',
+        url: '/images/tours/wildlife-hero.jpg',
+        alt: 'Elephant crossing at golden hour',
+        tags: ['wild', 'safari'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-love-in-sun-3d',
+    slug: 'love-in-the-sun-3d',
+    title: 'Love in the Sun | 3 Days / 2 Nights',
+    shortTitle: 'Love in the Sun',
+    category: 'honeymoon',
+    categories: ['honeymoon'],
+    description:
+      'A short romantic beach escape designed for couples seeking relaxation, privacy, and sunsets along Sri Lanka’s south coast.',
+    shortDescription: 'Negombo • South Coast • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 2, days: 3 },
+    bestFor: ['Couples', 'Honeymooners', 'Anniversary celebrations'],
+    difficulty: 'easy',
+    highlights: [
+      'Beachside romance and sunsets',
+      'Private leisure time',
+      'Optional candlelight dining',
+      'Colombo leisure & shopping'
+    ],
+    itinerary: [
+      { day: 1, title: 'Negombo to South Coast', timeframe: '', description: 'Arrival and transfer to a beachside hotel for relaxation.' },
+      { day: 2, title: 'South Coast', timeframe: '', description: 'Full day at leisure: beaches, romantic walks, optional private dinner.' },
+      { day: 3, title: 'South Coast to Colombo', timeframe: '', description: 'Light sightseeing or café time in Colombo before departure.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/preview images/AdobeStock_218725059_Preview.jpeg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['romantic', 'beach'],
+    locations: ['Negombo', 'South Coast', 'Colombo'],
+    images: [
+      {
+        id: 'img-love-sun-hero',
+        url: '/preview images/AdobeStock_1409646510_Preview.jpeg',
+        alt: 'Golden hour beach walk',
+        tags: ['romance'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-misty-hills-6d',
+    slug: 'misty-hills-romance-6d',
+    title: 'Misty Hills Romance | 6 Days / 5 Nights',
+    shortTitle: 'Misty Hills Romance',
+    category: 'honeymoon',
+    categories: ['honeymoon', 'adventure'],
+    description:
+      'A dreamy hill-country escape with misty mountains, tea estates, and scenic train rides tailored for couples.',
+    shortDescription: 'Negombo • Kandy • Nuwara Eliya • Ella • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 5, days: 6 },
+    bestFor: ['Couples', 'Honeymooners', 'Anniversary travelers'],
+    difficulty: 'easy',
+    highlights: [
+      'Lakeside romance in Kandy',
+      'Tea country walks in Nuwara Eliya',
+      'Scenic hill-country train ride',
+      'Ella mountain views & sunrises',
+      'Cool climate escape'
+    ],
+    itinerary: [
+      { day: 1, title: 'Negombo to Kandy', timeframe: '', description: 'Travel through countryside to Kandy; relaxed evening.' },
+      { day: 2, title: 'Kandy Day', timeframe: '', description: 'Leisurely nature walks, lakeside moments, optional culture.' },
+      { day: 3, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Misty hills, waterfalls, tea plantations, and factory visit.' },
+      { day: 4, title: 'Nuwara Eliya to Ella (Train)', timeframe: '', description: 'Romantic scenic train; explore Ella viewpoints.' },
+      { day: 5, title: 'Ella to Colombo', timeframe: '', description: 'Leisure morning in Ella before departing toward Colombo.' },
+      { day: 6, title: 'Colombo & Departure', timeframe: '', description: 'City leisure, shopping, or cafés before your flight.' }
+    ],
+    inclusions: [],
+    exclusions: [],
     heroImage: '/preview images/AdobeStock_186145375_Preview.jpeg',
     galleryImages: [],
     status: 'published',
-    tags: ['sigiriya', 'adventure', 'day-tour'],
-    locations: ['Sigiriya', 'Dambulla'],
+    tags: ['romance', 'hills', 'train'],
+    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Colombo'],
     images: [
       {
-        id: 'img-7',
+        id: 'img-misty-hills-hero',
         url: '/preview images/AdobeStock_186145375_Preview.jpeg',
-        alt: 'Sigiriya rock',
-        tags: ['sigiriya', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Sigiriya'
+        alt: 'Misty hills tea country',
+        tags: ['romantic', 'hills'],
+        scope: 'tour'
+      }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tour-forever-together-10d',
+    slug: 'forever-together-10d',
+    title: 'Forever Together | 10 Days / 9 Nights',
+    shortTitle: 'Forever Together',
+    category: 'honeymoon',
+    categories: ['honeymoon', 'adventure', 'wildlife'],
+    description:
+      'A luxurious 10-day romantic journey mixing misty hills, scenic trains, wildlife safaris, beaches, and heritage forts.',
+    shortDescription: 'Negombo • Kandy • Nuwara Eliya • Ella • Yala • South Coast • Galle • Colombo',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 9, days: 10 },
+    bestFor: ['Couples', 'Honeymooners', 'Anniversaries', 'Luxury travelers'],
+    difficulty: 'easy',
+    highlights: [
+      'Negombo beach & lagoon',
+      'Kandy lakeside romance',
+      'Tea country love in Nuwara Eliya',
+      'Scenic train ride to Ella',
+      'Yala safari adventure',
+      'South Coast relaxation',
+      'Galle Dutch Fort strolls',
+      'Colombo leisure & shopping'
+    ],
+    itinerary: [
+      { day: 1, title: 'BIA to Negombo', timeframe: '', description: 'Arrive and relax by the beach.' },
+      { day: 2, title: 'Negombo to Kandy', timeframe: '', description: 'Countryside drive to Kandy; lakeside moments.' },
+      { day: 3, title: 'Kandy Day', timeframe: '', description: 'Nature walks, lake time, optional cultural visits.' },
+      { day: 4, title: 'Kandy to Nuwara Eliya', timeframe: '', description: 'Tea country, waterfalls, and tea factory visit.' },
+      { day: 5, title: 'Nuwara Eliya to Ella (Train)', timeframe: '', description: 'Iconic hill-country rail journey; explore Ella.' },
+      { day: 6, title: 'Ella Exploration', timeframe: '', description: 'Nine Arches Bridge, viewpoints, or relaxed café time.' },
+      { day: 7, title: 'Ella to Yala', timeframe: '', description: 'Travel to Yala for an afternoon safari.' },
+      { day: 8, title: 'Yala to South Coast', timeframe: '', description: 'Transfer to southern beaches; optional romantic activities.' },
+      { day: 9, title: 'South Coast to Galle', timeframe: '', description: 'Visit Galle Dutch Fort and continue to Colombo.' },
+      { day: 10, title: 'Galle to Colombo', timeframe: '', description: 'Leisure in Colombo, shopping or sightseeing, then departure.' }
+    ],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '/images/tours/honeymoon-hero.jpg',
+    galleryImages: [],
+    status: 'published',
+    tags: ['romantic', 'luxury', 'beach'],
+    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'South Coast', 'Galle', 'Colombo'],
+    images: [
+      {
+        id: 'img-forever-together-hero',
+        url: '/images/tours/honeymoon-hero.jpg',
+        alt: 'Romantic journey across Sri Lanka',
+        tags: ['romance', 'luxury'],
+        scope: 'tour'
       }
     ],
     reviews: []

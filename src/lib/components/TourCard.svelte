@@ -40,7 +40,7 @@
         <span class="text-xs text-gray-500">From</span>
         <p class="text-lg font-bold text-gray-900">${tour.price.toLocaleString()}</p>
       </div>
-      <Button href="/tours/{tour.slug}" variant="none" size="sm">
+      <Button href={`/tours/${tour.slug}`} variant="ghost" size="sm">
         View tour
       </Button>
     </div>

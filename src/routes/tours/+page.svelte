@@ -14,9 +14,9 @@
 	};
 
 	const filteredTours = $derived(
-		selectedCategory === 'all' 
-			? tours 
-			: tours.filter(tour => tour.category === selectedCategory)
+		selectedCategory === 'all'
+			? tours
+			: tours.filter(tour => tour.category === selectedCategory || tour.categories?.includes(selectedCategory as any))
 	);
 </script>
 
@@ -44,12 +44,12 @@
 					class={`group w-full max-w-[140px] flex flex-col items-center gap-2 rounded-2xl border-none transition-all duration-200 p-3 ${
 						selectedCategory === category
 							? 'border-gray-800'
-							: ' hover:border-gray-300 hover:shadow-sm bg-white'
+							: 'bg-white'
 					}`}
 					onclick={() => selectedCategory = category}
 				>
-					<div class={`w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden ${
-						selectedCategory === category ? 'ring-2 ring-orange-500' : ''
+					<div class={`w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden transition-transform duration-150 ${
+						selectedCategory === category ? 'ring-2 ring-orange-500 scale-[1.02]' : 'group-hover:scale-105'
 					}`}>
 						<img src={categoryIcons[category]} alt={category} class="w-12 h-12 object-contain" />
 					</div>

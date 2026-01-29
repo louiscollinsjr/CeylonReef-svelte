@@ -21,7 +21,7 @@
     <div class="space-y-10">
       <h2 class="text-3xl sm:text-4xl md:text-[3.3rem] font-semibold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
         Experience Sri Lanka,
-         <span class="block leading-[0.9] -mt-3">thoughtfully.</span>
+         <span class="block leading-[0.9] -mt-2">thoughtfully.</span>
       </h2>
       <p class="text-[1.4rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
         Curated tours with trusted local guides, revealing Sri Lanka’s culture, coastline, and wildlife.

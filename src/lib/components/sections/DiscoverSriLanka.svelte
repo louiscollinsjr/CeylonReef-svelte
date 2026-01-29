@@ -14,9 +14,9 @@
         Curated island journeys
       </p> -->
       <div class="space-y-6">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-[0.9] tracking-tight">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-[1.3] tracking-tight">
           Discover the Soul
-          <span class="block leading-[0.9] -mt-3">of Sri Lanka</span>
+          <span class="block leading-[0.9] -mt-2">of Sri Lanka</span>
         </h1>
         <p class="text-[1.4rem] text-gray-500 max-w-xl leading-relaxed">
           Handpicked cultural immersions guided by locals who know every hidden corner.
