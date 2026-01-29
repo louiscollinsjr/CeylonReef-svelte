@@ -5,26 +5,6 @@ export interface TourDay {
   description: string;
 }
 
-export interface TourImage {
-  id: string;
-  url: string;
-  alt?: string;
-  tags: string[];
-  scope: 'tour' | 'day';
-  day?: number;
-  location?: string;
-}
-
-export interface TourReview {
-  id: string;
-  name: string;
-  role?: string;
-  rating?: number;
-  quote: string;
-  tourId: string;
-  date?: string;
-}
-
 export interface Tour {
   id: string;
   slug: string;
@@ -47,11 +27,6 @@ export interface Tour {
   exclusions: string[];
   heroImage: string;
   galleryImages: string[];
-  status: 'draft' | 'published' | 'archived';
-  tags: string[];
-  locations?: string[];
-  images?: TourImage[];
-  reviews?: TourReview[];
 }
 
 export const tours: Tour[] = [
@@ -91,32 +66,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/images/tours/cultural-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['heritage', 'coast', 'culture'],
-    locations: ['Negombo', 'Sigiriya', 'Kandy', 'Ella', 'Yala', 'Mirissa'],
-    images: [
-      {
-        id: 'img-1',
-        url: '/images/tours/cultural-hero.jpg',
-        alt: 'Sigiriya at sunrise',
-        tags: ['sigiriya', 'day-2', 'heritage'],
-        scope: 'day',
-        day: 2,
-        location: 'Sigiriya'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-1',
-        name: 'Sarah Mitchell',
-        role: 'From United Kingdom',
-        rating: 5,
-        quote: 'Sunrise at Sigiriya and the cultural stops made this unforgettable.',
-        tourId: 'tour-1',
-        date: '2024-08-12'
-      }
-    ]
+    galleryImages: []
   },
   {
     id: 'tour-2',
@@ -155,32 +105,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/images/tours/adventure-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['culture', 'wildlife', 'coast'],
-    locations: ['Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle'],
-    images: [
-      {
-        id: 'img-2',
-        url: '/images/tours/adventure-hero.jpg',
-        alt: 'Train in tea country',
-        tags: ['train', 'tea', 'day-7'],
-        scope: 'day',
-        day: 7,
-        location: 'Ella'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-2',
-        name: 'David Thompson',
-        role: 'From USA',
-        rating: 5,
-        quote: 'Covered everything we wanted—culture, wildlife, and beaches.',
-        tourId: 'tour-2',
-        date: '2024-07-05'
-      }
-    ]
+    galleryImages: []
   },
   {
     id: 'tour-3',
@@ -217,32 +142,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/images/tours/wildlife-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['wildlife', 'safari', 'coast'],
-    locations: ['Sigiriya', 'Kandy', 'Ella', 'Yala', 'Galle', 'Mirissa'],
-    images: [
-      {
-        id: 'img-3',
-        url: '/images/tours/wildlife-hero.jpg',
-        alt: 'Safari jeep in Yala',
-        tags: ['yala', 'safari', 'day-7'],
-        scope: 'day',
-        day: 7,
-        location: 'Yala'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-3',
-        name: 'Michael Chen',
-        role: 'From Australia',
-        rating: 5,
-        quote: 'Leopards, elephants, whales—spectacular wildlife focus.',
-        tourId: 'tour-3',
-        date: '2024-06-18'
-      }
-    ]
+    galleryImages: []
   },
   {
     id: 'tour-4',
@@ -275,32 +175,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks', 'Accommodation', 'Complimentary Romantic Dinners'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/images/tours/honeymoon-hero.jpg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['honeymoon', 'romantic', 'coast'],
-    locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Bentota'],
-    images: [
-      {
-        id: 'img-4',
-        url: '/images/tours/honeymoon-hero.jpg',
-        alt: 'Romantic dinner on the beach',
-        tags: ['romance', 'dinner', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Negombo'
-      }
-    ],
-    reviews: [
-      {
-        id: 'rev-4',
-        name: 'Emma & James Wilson',
-        role: 'From Canada',
-        rating: 5,
-        quote: 'Perfect honeymoon pacing with thoughtful romantic touches.',
-        tourId: 'tour-4',
-        date: '2024-05-10'
-      }
-    ]
+    galleryImages: []
   },
   {
     id: 'tour-5',
@@ -326,22 +201,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/preview images/AdobeStock_202776698_Preview.jpeg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['galle', 'heritage', 'day-tour'],
-    locations: ['Galle'],
-    images: [
-      {
-        id: 'img-5',
-        url: '/preview images/AdobeStock_202776698_Preview.jpeg',
-        alt: 'Galle Lighthouse',
-        tags: ['galle', 'lighthouse', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Galle'
-      }
-    ],
-    reviews: []
+    galleryImages: []
   },
   {
     id: 'tour-6',
@@ -367,22 +227,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/preview images/AdobeStock_322535378_Preview.jpeg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['kandy', 'culture', 'day-tour'],
-    locations: ['Kandy'],
-    images: [
-      {
-        id: 'img-6',
-        url: '/preview images/AdobeStock_322535378_Preview.jpeg',
-        alt: 'Temple of the Tooth',
-        tags: ['kandy', 'temple', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Kandy'
-      }
-    ],
-    reviews: []
+    galleryImages: []
   },
   {
     id: 'tour-7',
@@ -408,22 +253,7 @@ export const tours: Tour[] = [
     inclusions: ['Specialized Bilingual Guide', 'Private Transport', 'Entrance Fees', 'Box Lunch, Water, Dinner and Snacks'],
     exclusions: ['Additional Services', 'Insurance', 'Alcoholic Drinks', 'International Flight Tickets'],
     heroImage: '/preview images/AdobeStock_186145375_Preview.jpeg',
-    galleryImages: [],
-    status: 'published',
-    tags: ['sigiriya', 'adventure', 'day-tour'],
-    locations: ['Sigiriya', 'Dambulla'],
-    images: [
-      {
-        id: 'img-7',
-        url: '/preview images/AdobeStock_186145375_Preview.jpeg',
-        alt: 'Sigiriya rock',
-        tags: ['sigiriya', 'day-1'],
-        scope: 'day',
-        day: 1,
-        location: 'Sigiriya'
-      }
-    ],
-    reviews: []
+    galleryImages: []
   }
 ];
 
@@ -448,14 +278,4 @@ export const categoryColors: Record<string, string> = {
   wildlife: 'bg-green-100 text-green-800',
   honeymoon: 'bg-pink-100 text-pink-800',
   adventure: 'bg-blue-100 text-blue-800'
-};
-
-export const getTourImages = (slug: string): TourImage[] => {
-  const tour = getTourBySlug(slug);
-  return tour?.images ?? [];
-};
-
-export const getTourReviews = (slug: string): TourReview[] => {
-  const tour = getTourBySlug(slug);
-  return tour?.reviews ?? [];
 };

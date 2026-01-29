@@ -18,7 +18,7 @@
 <section class="py-20"><TourPreview /></section>
 <section class="py-0"><Facts /></section>
 
-<Testimonials />
+<!-- <Testimonials /> -->
 <!-- <CTA /> -->
 <section class="pt-20 pb-0"><YourQuestionsAnswered /></section>
 
