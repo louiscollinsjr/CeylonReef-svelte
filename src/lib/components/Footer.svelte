@@ -24,10 +24,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <div>
         <div class="flex items-center gap-2 mb-6">
-          <div class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center">
-            <span class="text-white font-bold text-lg">CR</span>
-          </div>
-          <span class="font-semibold text-lg">Ceylon Reef Tours</span>
+          <img
+            src="/Ceylon-Reef-Tour-Logo%203.png"
+            alt="Ceylon Reef Tours"
+            class="h-12 sm:h-16 w-auto"
+            loading="lazy"
+          />
         </div>
         <p class="text-gray-700 mb-6">
           Handcrafted journeys through Sri Lanka's most breathtaking destinations. Experience the real Sri Lanka with local guides.
