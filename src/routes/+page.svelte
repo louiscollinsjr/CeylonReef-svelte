@@ -14,8 +14,8 @@
 <DiscoverSriLanka />
 
 <section class="py-16 sm:py-24"><MakeEveryMomentCount /></section>	
-<section class="py-20"><ExperiencesYouWontForget /></section>
-<section class="py-20"><TourPreview /></section>
+<section class="py-16sm:py-20"><ExperiencesYouWontForget /></section>
+<section class="pt-16 sm:py-20"><TourPreview /></section>
 <section class="py-0"><Facts /></section>
 
 <!-- <Testimonials /> -->

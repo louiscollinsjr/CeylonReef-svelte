@@ -36,8 +36,8 @@
 </script>
 
 <header class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-white backdrop-blur">
-  <nav class="max-w-7xl mx-auto px-6 md:px-10 py-4 {isScrolled ? 'border-b border-gray-100' : ''} transition-all duration-300">
-    <div class="flex items-center justify-between h-14 md:h-16">
+  <nav class="max-w-7xl mx-auto px-4 md:px-10 py-1 md:py-4 {isScrolled ? 'border-b border-gray-100' : ''} transition-all duration-300">
+    <div class="flex items-center justify-between h-8 md:h-16">
       <a href="/" class="flex items-center gap-2" on:click={closeMobileMenu}>
         <!-- <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
           <span class="text-white font-bold text-lg">CR</span>

@@ -28,14 +28,14 @@
   });
 </script>
 
-<section class="py-20 bg-white">
+<section class="pb-0 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-8 md:px-4 space-y-12 bg-gray-00 py-24 rounded-3xl">
     <div class="text-center space-y-4 max-w-3xl mx-auto">
       <h2 class="text-3xl sm:text-4xl md:text-[5rem] font-semibold text-gray-900 leading-[1.3]">
         Be our guest.
           <span class="block leading-[0.9] sm:text-3xl md:text-[3.3rem] -mt-0">The island of wonders.</span>
       </h2>
-       <p class="text-[1.4rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
+       <p class="text-[1.2rem] sm:text-[1.4rem] text-gray-500 max-w-2xl mx-auto sm:leading-relaxed">
         Ceylon Reef Tours is the easiest way to experience Sri Lanka beyond the guidebook.
       </p>
 
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="space-y-8 max-w-xl mx-auto">
+    <div class="space-y-8 max-w-[60%] mx-auto">
       {#each displayedFacts as fact, idx}
         <div class="text-center space-y-1">
           <p class="text-gray-900 font-bold leading-snug text-2xl sm:text-4xl">{fact.title}</p>
