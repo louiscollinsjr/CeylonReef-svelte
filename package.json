@@ -36,6 +36,7 @@
 	},
 	"dependencies": {
 		"embla-carousel": "^8.6.0",
-		"embla-carousel-svelte": "^8.6.0"
+		"embla-carousel-svelte": "^8.6.0",
+		"lottie-web": "^5.13.0"
 	}
 }

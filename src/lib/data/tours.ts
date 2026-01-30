@@ -1,3 +1,6 @@
+export type TourCategory = 'cultural' | 'wildlife' | 'honeymoon' | 'adventure';
+export type TourStatus = 'draft' | 'published' | 'archived';
+
 export interface TourDay {
   day: number;
   title: string;
@@ -13,6 +16,10 @@ export interface TourImage {
   scope: 'tour' | 'day';
   day?: number;
   location?: string;
+  kind?: 'image' | 'video';
+  uploadedAt?: string;
+  sizeKb?: number;
+  credit?: string;
 }
 
 export interface TourReview {
@@ -30,8 +37,8 @@ export interface Tour {
   slug: string;
   title: string;
   shortTitle: string;
-  category: 'cultural' | 'wildlife' | 'honeymoon' | 'adventure';
-  categories: ('cultural' | 'wildlife' | 'honeymoon' | 'adventure')[];
+  category: TourCategory;
+  categories: TourCategory[];
   description: string;
   shortDescription: string;
   price: number;
@@ -48,12 +55,23 @@ export interface Tour {
   exclusions: string[];
   heroImage: string;
   galleryImages: string[];
-  status: 'draft' | 'published' | 'archived';
+  status: TourStatus;
   tags: string[];
   locations?: string[];
   images?: TourImage[];
   reviews?: TourReview[];
+  featured?: boolean;
+  maxGroupSize?: number;
+  startingPoint?: string;
+  endingPoint?: string;
+  availableMonths?: number[]; // 1-12
+  languages?: string[];
+  createdAt?: string;
+  updatedAt?: string;
+  metadata?: Record<string, string>;
 }
+
+export const defaultCurrency = 'USD';
 
 export const tours: Tour[] = [
   {
@@ -67,7 +85,7 @@ export const tours: Tour[] = [
       'Discover Sri Lanka’s ancient culture and heritage on a 7-day journey through kingdoms, temples, and UNESCO sites across the island’s heartland.',
     shortDescription: 'Negombo • Dambulla • Sigiriya • Polonnaruwa • Kandy • Colombo',
     price: 0,
-    currency: 'USD',
+    currency: defaultCurrency,
     duration: { nights: 6, days: 7 },
     bestFor: ['First-time visitors', 'History lovers', 'Relaxed cultural travel'],
     difficulty: 'easy',
@@ -96,13 +114,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['heritage', 'unesco', 'culture'],
     locations: ['Negombo', 'Dambulla', 'Sigiriya', 'Polonnaruwa', 'Kandy', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 6, 7, 8, 12],
+    languages: ['English', 'Sinhala'],
+    createdAt: '2024-12-01',
+    updatedAt: '2024-12-10',
     images: [
       {
         id: 'img-ancient-7d-hero',
         url: '/preview images/AdobeStock_322535378_Preview.jpeg',
         alt: 'Sigiriya sunrise and cultural highlights',
         tags: ['cultural', 'heritage'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-01'
+      },
+      {
+        id: 'img-ancient-7d-day3',
+        url: '/preview images/AdobeStock_218725059_Preview.jpeg',
+        alt: 'Polonnaruwa ruins at sunset',
+        tags: ['day', 'heritage'],
+        scope: 'day',
+        day: 4,
+        location: 'Polonnaruwa',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -149,13 +185,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['sacred', 'culture', 'heritage'],
     locations: ['Negombo', 'Anuradhapura', 'Mihintale', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 7, 8, 9, 12],
+    languages: ['English'],
+    createdAt: '2024-12-02',
+    updatedAt: '2024-12-11',
     images: [
       {
         id: 'img-sacred-hero',
         url: '/preview images/AdobeStock_218725059_Preview.jpeg',
         alt: 'Anuradhapura stupas at dusk',
         tags: ['heritage'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-02'
+      },
+      {
+        id: 'img-sacred-day5',
+        url: '/preview images/AdobeStock_186145375_Preview.jpeg',
+        alt: 'Sigiriya climb',
+        tags: ['day', 'adventure'],
+        scope: 'day',
+        day: 5,
+        location: 'Sigiriya',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -208,13 +262,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['legacy', 'culture', 'heritage'],
     locations: ['Negombo', 'Anuradhapura', 'Mihintale', 'Sigiriya', 'Dambulla', 'Polonnaruwa', 'Kandy', 'Nuwara Eliya', 'Ella', 'Galle', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 8, 9, 10, 11, 12],
+    languages: ['English', 'Tamil'],
+    createdAt: '2024-12-03',
+    updatedAt: '2024-12-12',
     images: [
       {
         id: 'img-legacy-hero',
         url: '/preview images/AdobeStock_202776698_Preview.jpeg',
         alt: 'Galle Fort sunset ramparts',
         tags: ['heritage', 'long-stay'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-03'
+      },
+      {
+        id: 'img-legacy-day9',
+        url: '/preview images/AdobeStock_191117435_Preview.jpeg',
+        alt: 'Scenic train to Ella',
+        tags: ['train', 'hill-country'],
+        scope: 'day',
+        day: 9,
+        location: 'Ella',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -256,13 +328,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['wildlife', 'nature', 'beach'],
     locations: ['Negombo', 'Pinnawala', 'Kandy', 'Nuwara Eliya', 'Yala', 'South Coast', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 4, 8, 9, 12],
+    languages: ['English'],
+    createdAt: '2024-12-04',
+    updatedAt: '2024-12-13',
     images: [
       {
         id: 'img-wild-trails-hero',
         url: '/images/tours/adventure-hero.jpg',
         alt: 'Yala safari jeep',
         tags: ['adventure'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-04'
+      },
+      {
+        id: 'img-wild-trails-day3',
+        url: '/preview images/AdobeStock_1409646510_Preview.jpeg',
+        alt: 'Hill-country train to Ella',
+        tags: ['train', 'hill-country'],
+        scope: 'day',
+        day: 2,
+        location: 'Kandy',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -306,13 +396,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['hills', 'train', 'safari'],
     locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'South Coast', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 4, 5, 7, 8, 12],
+    languages: ['English', 'Sinhala'],
+    createdAt: '2024-12-05',
+    updatedAt: '2024-12-14',
     images: [
       {
         id: 'img-hill-jungle-hero',
         url: '/preview images/AdobeStock_191117435_Preview.jpeg',
         alt: 'Waterfall picnic in Ella',
         tags: ['train', 'wildlife'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-05'
+      },
+      {
+        id: 'img-hill-jungle-day4',
+        url: '/images/tours/adventure-hero.jpg',
+        alt: 'Safari jeep ready',
+        tags: ['safari'],
+        scope: 'day',
+        day: 5,
+        location: 'Yala',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -359,13 +467,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['wildlife', 'rainforest', 'beach'],
     locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'Udawalawe', 'Sinharaja', 'South Coast', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 7, 8, 9, 12],
+    languages: ['English', 'Tamil'],
+    createdAt: '2024-12-06',
+    updatedAt: '2024-12-15',
     images: [
       {
         id: 'img-ultimate-wild-hero',
         url: '/images/tours/wildlife-hero.jpg',
         alt: 'Elephant crossing at golden hour',
         tags: ['wild', 'safari'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-06'
+      },
+      {
+        id: 'img-ultimate-wild-day8',
+        url: '/preview images/AdobeStock_1409646510_Preview.jpeg',
+        alt: 'Sinharaja rainforest trek',
+        tags: ['rainforest', 'trek'],
+        scope: 'day',
+        day: 8,
+        location: 'Sinharaja',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -403,13 +529,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['romantic', 'beach'],
     locations: ['Negombo', 'South Coast', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 11, 12],
+    languages: ['English'],
+    createdAt: '2024-12-07',
+    updatedAt: '2024-12-16',
     images: [
       {
         id: 'img-love-sun-hero',
         url: '/preview images/AdobeStock_1409646510_Preview.jpeg',
         alt: 'Golden hour beach walk',
         tags: ['romance'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-07'
+      },
+      {
+        id: 'img-love-sun-day2',
+        url: '/images/tours/honeymoon-hero.jpg',
+        alt: 'Private beach dinner',
+        tags: ['dining'],
+        scope: 'day',
+        day: 2,
+        location: 'South Coast',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -451,13 +595,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['romance', 'hills', 'train'],
     locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [2, 3, 4, 8, 9, 12],
+    languages: ['English'],
+    createdAt: '2024-12-08',
+    updatedAt: '2024-12-17',
     images: [
       {
         id: 'img-misty-hills-hero',
         url: '/preview images/AdobeStock_186145375_Preview.jpeg',
         alt: 'Misty hills tea country',
         tags: ['romantic', 'hills'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-08'
+      },
+      {
+        id: 'img-misty-hills-day4',
+        url: '/preview images/AdobeStock_191117435_Preview.jpeg',
+        alt: 'Scenic train ride',
+        tags: ['train'],
+        scope: 'day',
+        day: 4,
+        location: 'Ella',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -506,13 +668,31 @@ export const tours: Tour[] = [
     status: 'published',
     tags: ['romantic', 'luxury', 'beach'],
     locations: ['Negombo', 'Kandy', 'Nuwara Eliya', 'Ella', 'Yala', 'South Coast', 'Galle', 'Colombo'],
+    startingPoint: 'Negombo',
+    endingPoint: 'Colombo',
+    availableMonths: [1, 2, 3, 7, 8, 12],
+    languages: ['English'],
+    createdAt: '2024-12-09',
+    updatedAt: '2024-12-18',
     images: [
       {
         id: 'img-forever-together-hero',
         url: '/images/tours/honeymoon-hero.jpg',
         alt: 'Romantic journey across Sri Lanka',
         tags: ['romance', 'luxury'],
-        scope: 'tour'
+        scope: 'tour',
+        kind: 'image',
+        uploadedAt: '2024-12-09'
+      },
+      {
+        id: 'img-forever-together-day7',
+        url: '/images/tours/wildlife-hero.jpg',
+        alt: 'Yala safari for couples',
+        tags: ['safari', 'romance'],
+        scope: 'day',
+        day: 7,
+        location: 'Yala',
+        kind: 'image'
       }
     ],
     reviews: []
@@ -528,18 +708,86 @@ export const getToursByCategory = (category: string): Tour[] => {
   return tours.filter(tour => tour.category === category);
 };
 
-export const categoryLabels: Record<string, string> = {
+export const categoryLabels: Record<TourCategory, string> = {
   cultural: 'Cultural',
   wildlife: 'Wildlife',
   honeymoon: 'Honeymoon',
   adventure: 'Adventure'
 };
 
-export const categoryColors: Record<string, string> = {
+export const categoryColors: Record<TourCategory, string> = {
   cultural: 'bg-amber-100 text-amber-800',
   wildlife: 'bg-green-100 text-green-800',
   honeymoon: 'bg-pink-100 text-pink-800',
   adventure: 'bg-blue-100 text-blue-800'
+};
+
+const generateId = (prefix: string) => `${prefix}-${crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(16).slice(2)}`;
+
+export const createEmptyTour = (overrides: Partial<Tour> = {}): Tour => {
+  const now = new Date().toISOString().slice(0, 10);
+  const base: Tour = {
+    id: generateId('tour'),
+    slug: 'new-tour',
+    title: 'New Tour',
+    shortTitle: 'New Tour',
+    category: 'cultural',
+    categories: ['cultural'],
+    description: '',
+    shortDescription: '',
+    price: 0,
+    currency: 'USD',
+    duration: { nights: 0, days: 0 },
+    bestFor: [],
+    difficulty: 'easy',
+    highlights: [],
+    itinerary: [],
+    inclusions: [],
+    exclusions: [],
+    heroImage: '',
+    galleryImages: [],
+    status: 'draft',
+    tags: [],
+    images: [],
+    reviews: [],
+    featured: false,
+    availableMonths: [],
+    languages: [],
+    createdAt: now,
+    updatedAt: now,
+    metadata: {}
+  };
+
+  return { ...base, ...overrides, categories: overrides.categories ?? [base.category] };
+};
+
+export const addTour = (tour: Partial<Tour>): Tour => {
+  const next = createEmptyTour({ ...tour, id: tour.id ?? generateId('tour') });
+  tours.push(next);
+  return next;
+};
+
+export const updateTour = (id: string, updates: Partial<Tour>): Tour | undefined => {
+  const idx = tours.findIndex(t => t.id === id);
+  if (idx === -1) return undefined;
+  const merged = { ...tours[idx], ...updates, updatedAt: new Date().toISOString().slice(0, 10) } as Tour;
+  tours[idx] = merged;
+  return merged;
+};
+
+export const deleteTour = (id: string): boolean => {
+  const idx = tours.findIndex(t => t.id === id);
+  if (idx === -1) return false;
+  tours.splice(idx, 1);
+  return true;
+};
+
+export const addTourImage = (tourId: string, image: Omit<TourImage, 'id'> & { id?: string }): TourImage | undefined => {
+  const tour = tours.find(t => t.id === tourId);
+  if (!tour) return undefined;
+  const img: TourImage = { id: image.id ?? generateId('img'), ...image };
+  tour.images = [...(tour.images ?? []), img];
+  return img;
 };
 
 export const getTourImages = (slug: string): TourImage[] => {

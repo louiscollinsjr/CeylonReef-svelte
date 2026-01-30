@@ -4,8 +4,9 @@
 
 	let selectedCategory = $state('all');
 
-	const categories = ['all', 'cultural', 'wildlife', 'honeymoon', 'adventure'];
-	const categoryIcons: Record<string, string> = {
+	const categories = ['all', 'cultural', 'wildlife', 'honeymoon', 'adventure'] as const;
+	type CategoryKey = (typeof categories)[number];
+	const categoryIcons: Record<CategoryKey, string> = {
 		all: '/filter_icons/All_Tours.svg',
 		cultural: '/filter_icons/cutural.svg',
 		wildlife: '/filter_icons/wildlife.svg',
@@ -16,7 +17,7 @@
 	const filteredTours = $derived(
 		selectedCategory === 'all'
 			? tours
-			: tours.filter(tour => tour.category === selectedCategory || tour.categories?.includes(selectedCategory as any))
+			: tours.filter(tour => tour.category === selectedCategory || tour.categories?.includes(selectedCategory as typeof tour.category))
 	);
 </script>
 

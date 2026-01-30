@@ -1,10 +1,43 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import lottie from 'lottie-web';
   import Button from '../Button.svelte';
+
+  let birdsContainer: HTMLDivElement;
+
+  onMount(() => {
+    let anim: ReturnType<typeof lottie.loadAnimation> | undefined;
+
+    const load = async () => {
+      if (!birdsContainer) return;
+      const res = await fetch('/Birds.json');
+      if (!res.ok) return;
+      const data = await res.json();
+      anim = lottie.loadAnimation({
+        container: birdsContainer,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: data
+      });
+      anim.setSpeed(0.8);
+    };
+
+    load();
+    return () => anim?.destroy();
+  });
 </script>
 
 <section
   class="relative overflow-hidden bg-white min-h-[102dvh] md:min-h-0 bg-[url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')] bg-no-repeat bg-bottom bg-size-[140%_278px] md:bg-none"
 >
+  <div class="absolute inset-0 pointer-events-none md:hidden" aria-hidden="true">
+    <div
+      bind:this={birdsContainer}
+      class="absolute left-1/2 -translate-x-1/2 top-12 w-[320px] h-[160px] opacity-70"
+    ></div>
+  </div>
+
   <div class="absolute inset-0 pointer-events-none">
     <div class="h-32 w-32 bg-primary-200/30 rounded-full blur-3xl absolute -left-10 top-10"></div>
     <div class="h-52 w-52 bg-neutral-200/45 rounded-full blur-3xl absolute left-1/2 top-[65%] -translate-x-1/2 -translate-y-1/2"></div>
