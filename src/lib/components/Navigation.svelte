@@ -14,10 +14,16 @@
 
   function toggleMobileMenu() {
     mobileMenuOpen = !mobileMenuOpen;
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 
   function closeMobileMenu() {
     mobileMenuOpen = false;
+    document.body.style.overflow = '';
   }
 
   onMount(() => {
@@ -72,27 +78,46 @@
       </button>
     </div>
 
-    {#if mobileMenuOpen}
-      <div class="md:hidden py-4 bg-white/95 backdrop-blur-sm border-t border-gray-100">
-        <div class="flex flex-col gap-4">
-          {#each navLinks as link}
-            <a 
-              href={link.href} 
-              class="text-gray-800 hover:text-primary-600 transition-colors font-semibold py-2 {$page.url.pathname === link.href ? 'text-primary-600' : ''}"
-              on:click={closeMobileMenu}
-            >
-              {link.label}
-            </a>
-          {/each}
-          <a
-            href="/tours"
-            class="inline-flex w-full items-center justify-center px-4 py-2 rounded-full bg-black text-white text-xs font-semibold hover:bg-gray-800 transition-colors"
-            on:click={closeMobileMenu}
-          >
-            Browse tours
-          </a>
-        </div>
-      </div>
-    {/if}
   </nav>
 </header>
+
+{#if mobileMenuOpen}
+  <div class="md:hidden fixed inset-0 z-60 bg-[#f5f5f7] overflow-y-auto">
+    <div class="flex flex-col min-h-screen px-6 pt-6 pb-10">
+      <div class="flex items-center justify-between h-14">
+        <a href="/" class="font-semibold text-lg text-gray-900" on:click={closeMobileMenu}>
+          Ceylon Reef Tours
+        </a>
+        <button
+          class="p-2 text-gray-700 hover:text-gray-900"
+          on:click={closeMobileMenu}
+          aria-label="Close menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 flex flex-col gap-3 pt-12">
+        {#each navLinks as link}
+          <a
+            href={link.href}
+            class="text-3xl font-semibold text-gray-900 {$page.url.pathname === link.href ? 'text-gray-600' : 'hover:text-gray-600'} transition-colors py-2"
+            on:click={closeMobileMenu}
+          >
+            {link.label}
+          </a>
+        {/each}
+      </div>
+      <div class="flex flex-col gap-4 pt-8">
+        <a
+          href="/tours"
+          class="inline-flex w-full items-center justify-center px-6 py-3.5 rounded-full bg-black text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+          on:click={closeMobileMenu}
+        >
+          Browse tours
+        </a>
+      </div>
+    </div>
+  </div>
+{/if}
