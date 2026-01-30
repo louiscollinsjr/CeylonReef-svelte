@@ -20,7 +20,7 @@
           Discover the Soul
           <span class="block leading-[0.9] -mt-2">of Sri Lanka</span>
         </h1>
-        <p class="text-[1.2rem] sm:text-[1.4rem] text-gray-500 max-w-72 mx-auto sm:max-w-xl leading-relaxed">
+        <p class="text-[1.2rem] sm:text-[1.4rem] text-gray-500 max-w-72 mx-auto sm:max-w-xl sm:leading-relaxed">
           Handpicked cultural immersions guided by locals who know every hidden corner.
         </p>
       </div>
