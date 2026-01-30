@@ -29,7 +29,7 @@
 </script>
 
 <section
-  class="relative overflow-hidden bg-white min-h-[110vh] sm:min-h-[102dvh] md:min-h-0 bg-[url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')] bg-no-repeat bg-bottom bg-size-[140%_320px] sm:bg-size-[140%_278px] md:bg-none"
+  class="relative overflow-hidden bg-white min-h-[102vh] sm:min-h-[102dvh] md:min-h-0 bg-[url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')] bg-no-repeat bg-bottom bg-size-[140%_320px] sm:bg-size-[140%_278px] md:bg-none"
 >
   <div class="absolute inset-0 pointer-events-none md:hidden" aria-hidden="true">
     <div
