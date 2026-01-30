@@ -47,19 +47,19 @@
       </p> -->
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 pt-12 pl-12">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 pt-10 px-4 sm:px-6 md:px-0 md:pt-12 md:pl-12">
       {#each displayed as item}
-        <article class="flex gap-8 items-center text-left">
-          <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-24 md:h-24 overflow-hidden rounded-xl flex-shrink-0 bg-gray-100 shadow-xl">
+        <article class="flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center text-left">
+          <div class="w-full md:w-24 h-36 sm:h-40 md:h-24 sm:w-32 overflow-hidden rounded-xl bg-gray-100 shadow-xl">
             <img src={item.image} alt={item.title} class="h-full w-full object-cover" loading="lazy" />
           </div>
-          <div class="space-y-2 max-w-xs">
-            <h3 class="text-sm font-semibold text-gray-900 leading-tight">{item.title}</h3>
-            <p class="text-xs text-gray-600 leading-relaxed">{item.description}</p>
-            <a href={item.link} class="inline-flex items-center gap-2 text-sm font-semibold text-gray-800 hover:text-black transition-colors">
-              <!-- <span aria-hidden="true" class="bg-green-500 rounded-full pl-0.5 w-3.5 h-3.5 flex items-center justify-center text-white text-sm">+</span> -->
+          <div class="space-y-0 max-w-xs">
+            <h3 class="text-sm font-semibold text-gray-900 leading-snug">{item.title}</h3>
+            <p class="text-[11px] sm:text-xs text-gray-600 leading-snug">{item.description}</p>
+            <a href={item.link} class="inline-flex items-center gap-1.5 text-xs sm:font-semibold text-gray-800 hover:text-black transition-colors">
               Customize tour
-              <span aria-hidden="true">→</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.13,104.13,0,0,0,128,24Zm40,112H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path></svg>
+              
             </a>
           </div>
         </article>
