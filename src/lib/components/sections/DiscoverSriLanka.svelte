@@ -34,7 +34,7 @@
   <div class="absolute inset-0 pointer-events-none md:hidden" aria-hidden="true">
     <div
       bind:this={birdsContainer}
-      class="absolute left-1/2 -translate-x-1/2 top-12 w-[320px] h-[160px] opacity-70"
+      class="absolute left-1/2 -translate-x-1/2 top-[60vh] w-[320px] h-[160px] opacity-70"
     ></div>
   </div>
 
