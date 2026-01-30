@@ -27,9 +27,9 @@
         Curated journeys with trusted locals—customize your route, add days, or weave in extra locations to fit how you travel.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-12">
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-4 px-4 pb-4 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6 md:gap-8 pt-12">
       {#each featuredTours as tour}
-        <article class="relative flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+        <article class="relative flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 min-w-[80%] snap-start shrink-0 sm:min-w-0 sm:snap-normal">
           <div class="relative aspect-[4/5] w-full overflow-hidden">
             <div class="absolute top-3 left-3 bg-white/55 text-[0.7rem] font-semibold text-gray-900 px-3 py-1 rounded-full shadow-sm flex items-center gap-2 backdrop-blur">
               <span>📍</span>
