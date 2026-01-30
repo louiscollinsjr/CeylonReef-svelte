@@ -24,7 +24,7 @@
          <span class="block leading-[0.9] -mt-2">thoughtfully.</span>
       </h2>
       <p class="text-[1.4rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
-        Curated tours with trusted local guides, revealing Sri Lanka’s culture, coastline, and wildlife.
+        Curated journeys with trusted locals—customize your route, add days, or weave in extra locations to fit how you travel.
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 pt-12">
