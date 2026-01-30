@@ -35,14 +35,17 @@
       {tour.shortDescription}
     </p>
     
-    <div class="flex items-center justify-between pt-1">
-      <div>
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between pt-1">
+      <div class="flex items-baseline gap-1">
         <span class="text-xs text-gray-500">From</span>
         <p class="text-lg font-bold text-gray-900">${tour.price.toLocaleString()}</p>
       </div>
-      <Button href={`/tours/${tour.slug}`} variant="ghost" size="sm">
-        View tour
-      </Button>
+      <a
+        href={`/tours/${tour.slug}`}
+        class="text-xs font-semibold text-gray-900 hover:underline w-full sm:w-auto text-left"
+      >
+        Customize
+      </a>
     </div>
   </div>
 </article>

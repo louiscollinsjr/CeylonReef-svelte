@@ -38,7 +38,7 @@
 
 <section class="py-16 bg-white">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12 justify-items-center max-w-2xl mx-auto border-b pb-6">
+		<div class="flex gap-3 overflow-x-auto px-1 sm:px-0 sm:grid sm:grid-cols-3 md:grid-cols-5 sm:gap-4 mb-12 justify-items-center max-w-2xl mx-auto border-b pb-6">
 			{#each categories as category}
 				<button
 					class={`group w-full max-w-[140px] flex flex-col items-center gap-2 rounded-2xl border-none transition-all duration-200 p-3 ${
@@ -62,7 +62,7 @@
 			{/each}
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 			{#each filteredTours as tour (tour.id)}
 				<TourCard {tour} />
 			{/each}
