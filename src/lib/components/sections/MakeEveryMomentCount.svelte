@@ -36,12 +36,11 @@
 <section class="py-20 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-8 md:px-4 text-center space-y-6">
     <div class="space-y-6 sm:space-y-10">
-      <h2 class="text-3xl sm:text-4xl md:text-[3.3rem] font-semibold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
-        Experience Sri Lanka,
-         <span class="block leading-[0.9] -mt-2">thoughtfully.</span>
+      <h2 class="text-3xl sm:text-4xl md:text-[3.3rem] font-semibold text-gray-900 leading-tight tracking-tight max-w-2xl mx-auto">
+        Thoughtfully curated journeys through Sri Lanka.
       </h2>
-      <p class="text-[1.2rem] sm:text-[1.4rem] text-gray-500 max-w-72 sm:max-w-2xl mx-auto sm:leading-relaxed leading-6">
-        Curated journeys with trusted locals—customize your route, add days, or weave in extra locations to fit how you travel.
+      <p class="text-[1.2rem] sm:text-[1.4rem] text-gray-500 max-w-80 sm:max-w-2xl mx-auto sm:leading-relaxed leading-6">
+       Journeys designed with trusted locals—flexible routes, added days, and meaningful detours shaped around how you travel.
       </p>
     </div>
     <div class="pt-6">

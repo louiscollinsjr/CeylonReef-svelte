@@ -67,7 +67,7 @@
     </div>
 
     <div class="text-center mt-10 sm:mt-12">
-      <Button href="/tours" variant="primary" size="lg" className="!rounded-full shadow-md">
+      <Button href="/tours" variant="primary" size="md" className="!rounded-full shadow-md">
         View all tours
       </Button>
     </div>

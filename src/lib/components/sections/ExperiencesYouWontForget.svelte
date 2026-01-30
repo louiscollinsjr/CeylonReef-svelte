@@ -38,7 +38,7 @@
 <section class="py-0 bg-white">
   <div class="max-w-6xl mx-auto px-0 sm:px-8 md:px-4 text-center space-y-6">
     <div class="space-y-6">
-      <h2 class="text-4xl sm:text-4xl md:text-[3.3rem] font-semibold text-gray-900 leading-tight tracking-tight max-w-[80%] sm:max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl md:text-[3.3rem] font-semibold text-gray-900 leading-tight tracking-tight max-w-[80%] sm:max-w-3xl mx-auto">
         One-of-a-kind experiences you’ll always remember.
       </h2>
       <!-- <p class="text-[1.2rem] sm:text-[1.3rem] text-gray-500 max-w-2xl mx-auto leading-relaxed">
