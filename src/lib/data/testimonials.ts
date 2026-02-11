@@ -41,3 +41,23 @@ export const testimonials: Testimonial[] = [
 export const getTestimonialsByTour = (tourId: string): Testimonial[] => {
   return testimonials.filter(t => t.tourId === tourId);
 };
+
+export const addTestimonial = (data: Omit<Testimonial, 'id'>): Testimonial => {
+  const newItem: Testimonial = { ...data, id: `testimonial-${Date.now()}` };
+  testimonials.push(newItem);
+  return newItem;
+};
+
+export const updateTestimonial = (id: string, data: Partial<Testimonial>): Testimonial | undefined => {
+  const index = testimonials.findIndex(t => t.id === id);
+  if (index === -1) return undefined;
+  testimonials[index] = { ...testimonials[index], ...data };
+  return testimonials[index];
+};
+
+export const deleteTestimonial = (id: string): boolean => {
+  const index = testimonials.findIndex(t => t.id === id);
+  if (index === -1) return false;
+  testimonials.splice(index, 1);
+  return true;
+};

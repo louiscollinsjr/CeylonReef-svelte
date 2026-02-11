@@ -29,12 +29,20 @@
 </script>
 
 <section
-  class="relative overflow-hidden bg-white min-h-[102vh] sm:min-h-[102dvh] md:min-h-0 bg-[url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')] bg-no-repeat bg-bottom bg-size-[140%_320px] sm:bg-size-[140%_278px] md:bg-none"
+  class="relative overflow-hidden bg-white min-h-[102vh] sm:min-h-[102dvh] md:min-h-0"
 >
+  <!-- Mountain background — phone & tablet only -->
+  <div
+    class="absolute inset-0 pointer-events-none md:hidden bg-no-repeat bg-bottom bg-size-[100%_auto]"
+    style:background-image="url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Birds animation — phone & tablet only, anchored above mountains -->
   <div class="absolute inset-0 pointer-events-none md:hidden" aria-hidden="true">
     <div
       bind:this={birdsContainer}
-      class="absolute left-1/2 -translate-x-1/2 top-[60vh] w-[320px] h-[160px] opacity-70"
+      class="absolute left-1/2 -translate-x-1/2 bottom-[28%] sm:bottom-[32%] w-[70vw] max-w-[400px] h-[35vw] max-h-[200px] opacity-70"
     ></div>
   </div>
 

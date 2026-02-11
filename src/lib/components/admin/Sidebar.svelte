@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import { Separator } from '$lib/components/ui/separator';
+  import { page } from '$app/stores';
 
   const navLinks = [
     { href: '/admin', label: 'Overview' },
@@ -8,6 +9,13 @@
     { href: '/admin/testimonials', label: 'Testimonials' },
     { href: '/admin/faqs', label: 'FAQs' }
   ];
+
+  function isActive(href: string) {
+    if (href === '/admin') {
+      return $page.url.pathname === href;
+    }
+    return $page.url.pathname.startsWith(href);
+  }
 </script>
 
 <aside class="hidden md:flex w-64 shrink-0 flex-col border-r bg-sidebar text-sidebar-foreground">
@@ -19,7 +27,7 @@
     {#each navLinks as link}
       <a
         href={link.href}
-        class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-sidebar-accent hover:text-sidebar-accent-foreground {isActive(link.href) ? 'bg-sidebar-accent text-sidebar-accent-foreground' : ''}"
       >
         {link.label}
       </a>

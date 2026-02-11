@@ -6,6 +6,8 @@ export interface TourDay {
   title: string;
   timeframe: string;
   description: string;
+  location?: string;
+  images?: string[];
 }
 
 export interface TourImage {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let phoneNumber: string = '94777300852';
+  export let phoneNumber: string = '+40756223498';
   export let message: string = 'Hello, I\'m interested in your tours. Can you provide more information?';
   
   $: whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

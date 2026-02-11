@@ -50,3 +50,23 @@ export const getFaqsByCategory = (category: FAQ['category'] | 'all' = 'all'): FA
   if (category === 'all') return faqs;
   return faqs.filter((faq) => faq.category === category);
 };
+
+export const addFaq = (data: Omit<FAQ, 'id'>): FAQ => {
+  const newItem: FAQ = { ...data, id: `faq-${Date.now()}` };
+  faqs.push(newItem);
+  return newItem;
+};
+
+export const updateFaq = (id: string, data: Partial<FAQ>): FAQ | undefined => {
+  const index = faqs.findIndex(f => f.id === id);
+  if (index === -1) return undefined;
+  faqs[index] = { ...faqs[index], ...data };
+  return faqs[index];
+};
+
+export const deleteFaq = (id: string): boolean => {
+  const index = faqs.findIndex(f => f.id === id);
+  if (index === -1) return false;
+  faqs.splice(index, 1);
+  return true;
+};
