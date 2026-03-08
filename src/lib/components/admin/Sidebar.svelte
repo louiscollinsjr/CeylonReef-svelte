@@ -6,6 +6,7 @@
   const navLinks = [
     { href: '/admin', label: 'Overview' },
     { href: '/admin/tours', label: 'Tours' },
+    { href: '/admin/stops', label: 'Add-On Stops' },
     { href: '/admin/testimonials', label: 'Testimonials' },
     { href: '/admin/faqs', label: 'FAQs' }
   ];

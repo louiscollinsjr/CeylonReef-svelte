@@ -1,13 +1,51 @@
 <script lang="ts">
 	import { categoryLabels, categoryColors } from '$lib/data/tours';
 	import { getTestimonialsByTour } from '$lib/data/testimonials';
+	import { getEnabledStops, type AddOnStop } from '$lib/data/stops';
 	import Button from '$lib/components/Button.svelte';
 	import TestimonialCard from '$lib/components/TestimonialCard.svelte';
+
+	const PHONE = '40756223498';
 
 	let { data } = $props();
 	
 	const tour = $derived(data.tour);
 	const testimonials = $derived(getTestimonialsByTour(data.tour.id));
+
+	let selectedAddOns = $state<string[]>([]);
+
+	const tourLocationSet = $derived(new Set((tour.locations ?? []).map((l: string) => l.toLowerCase())));
+
+	const availableStops = $derived(
+		getEnabledStops().filter(s => !tourLocationSet.has(s.city.toLowerCase()))
+	);
+
+	function toggleStop(id: string) {
+		if (selectedAddOns.includes(id)) {
+			selectedAddOns = selectedAddOns.filter(s => s !== id);
+		} else {
+			selectedAddOns = [...selectedAddOns, id];
+		}
+	}
+
+	const addOnParam = $derived(
+		selectedAddOns.length ? `&addons=${selectedAddOns.join(',')}` : ''
+	);
+
+	const inquiryUrl = $derived(`/contact?tour=${tour.slug}${addOnParam}`);
+
+	const whatsAppAddOnText = $derived(() => {
+		if (selectedAddOns.length === 0) return '';
+		const names = selectedAddOns
+			.map(id => getEnabledStops().find(s => s.id === id))
+			.filter(Boolean)
+			.map(s => s!.city);
+		return ` I'd also like to add: ${names.join(', ')}.`;
+	});
+
+	const whatsAppUrl = $derived(
+		`https://wa.me/${PHONE}?text=${encodeURIComponent(`Hi, I'm interested in the ${tour.title} tour.${whatsAppAddOnText()}`)}`
+	);
 
 </script>
 
@@ -70,11 +108,11 @@
 				</div>
 
 				<div class="flex flex-col sm:flex-row gap-3 justify-center">
-					<Button href="/contact?tour={tour.slug}" variant="primary" size="md" className="!rounded-full">
+					<Button href={inquiryUrl} variant="primary" size="md" className="!rounded-full">
 						Inquire Now
 					</Button>
 					<a 
-						href="https://wa.me/94777300852?text=Hi, I'm interested in the {encodeURIComponent(tour.title)} tour."
+						href={whatsAppUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-gray-300 text-gray-900 text-sm font-semibold hover:bg-gray-50 transition-colors"
@@ -146,13 +184,13 @@
 						<span class="text-sm text-neutral-500">per person</span>
 					</div>
 					
-					<Button href="/contact?tour={tour.slug}" variant="primary" fullWidth size="lg">
-						Inquire Now
+					<Button href={inquiryUrl} variant="primary" fullWidth size="lg">
+						Inquire Now{selectedAddOns.length ? ` (${selectedAddOns.length} add-on${selectedAddOns.length > 1 ? 's' : ''})` : ''}
 					</Button>
 					
 					<div class="mt-4">
 						<a 
-							href="https://wa.me/94777300852?text=Hi, I'm interested in the {encodeURIComponent(tour.title)} tour."
+							href={whatsAppUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 							class="flex items-center justify-center gap-2 w-full py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors"
@@ -172,6 +210,81 @@
 		</div>
 	</div>
 </section>
+
+{#if availableStops.length > 0}
+<section class="py-16 bg-neutral-50">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-10">
+			<h2 class="text-2xl font-bold text-neutral-900 mb-2">Customize Your Tour</h2>
+			<p class="text-neutral-600 max-w-xl mx-auto">Add extra stops à la carte to make this tour uniquely yours. Select any cities below and they'll be included in your inquiry.</p>
+		</div>
+
+		{#if selectedAddOns.length > 0}
+			<div class="mb-8 p-4 bg-primary-50 border border-primary-200 rounded-xl">
+				<div class="flex items-center justify-between flex-wrap gap-2">
+					<div class="flex items-center gap-2">
+						<svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+						<span class="text-sm font-medium text-primary-800">
+							{selectedAddOns.length} add-on{selectedAddOns.length > 1 ? 's' : ''} selected
+						</span>
+					</div>
+					<button
+						type="button"
+						onclick={() => { selectedAddOns = []; }}
+						class="text-xs text-primary-600 hover:text-primary-800 underline"
+					>
+						Clear all
+					</button>
+				</div>
+			</div>
+		{/if}
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+			{#each availableStops as stop}
+				{@const isSelected = selectedAddOns.includes(stop.id)}
+				<button
+					type="button"
+					onclick={() => toggleStop(stop.id)}
+					class="text-left p-5 rounded-xl border-2 transition-all duration-200 {isSelected ? 'border-primary-500 bg-primary-50 shadow-sm' : 'border-neutral-200 bg-white hover:border-neutral-300 hover:shadow-sm'}"
+				>
+					<div class="flex items-start justify-between gap-3">
+						<div class="flex-1 min-w-0">
+							<h4 class="font-semibold text-neutral-900 text-sm">{stop.city}</h4>
+							<p class="text-xs text-neutral-500 mt-0.5">{stop.region}</p>
+						</div>
+						<div class="shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center mt-0.5 {isSelected ? 'border-primary-500 bg-primary-500' : 'border-neutral-300'}">
+							{#if isSelected}
+								<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+								</svg>
+							{/if}
+						</div>
+					</div>
+					<p class="text-xs text-neutral-600 mt-2 line-clamp-2">{stop.description}</p>
+					<div class="flex items-center gap-3 mt-3">
+						<span class="text-xs text-neutral-500">{stop.suggestedDays} day{stop.suggestedDays > 1 ? 's' : ''} suggested</span>
+						<div class="flex flex-wrap gap-1">
+							{#each stop.highlights.slice(0, 2) as h}
+								<span class="text-[10px] px-2 py-0.5 bg-neutral-100 text-neutral-600 rounded-full">{h}</span>
+							{/each}
+						</div>
+					</div>
+				</button>
+			{/each}
+		</div>
+
+		{#if selectedAddOns.length > 0}
+			<div class="mt-8 text-center">
+				<Button href={inquiryUrl} variant="primary" size="lg">
+					Inquire with {selectedAddOns.length} Add-On{selectedAddOns.length > 1 ? 's' : ''}
+				</Button>
+			</div>
+		{/if}
+	</div>
+</section>
+{/if}
 
 <section class="py-16 bg-white ">
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-neutral-100 pt-12 ">
@@ -234,7 +347,7 @@
 			Let us help you plan your perfect Sri Lankan adventure
 		</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
-			<Button href="/contact?tour={tour.slug}" variant="secondary" size="lg">
+			<Button href={inquiryUrl} variant="secondary" size="lg">
 				Inquire Now
 			</Button>
 			<a href="/tours" class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg border-2 border-white text-white hover:bg-white hover:text-primary-600 transition-all duration-200">

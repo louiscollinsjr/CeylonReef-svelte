@@ -34,7 +34,13 @@
   <!-- Mountain background — phone & tablet only -->
   <div
     class="absolute inset-0 pointer-events-none md:hidden bg-no-repeat bg-bottom bg-size-[100%_auto]"
-    style:background-image="url('/images/hero-backgrounds/Updated-AdobeStock_753773319_Preview.png')"
+    style:background-image="url('/images/hero-backgrounds/lion-rock-4.png')"
+    aria-hidden="true"
+  ></div>
+  <!-- White fade from bottom so the mountain merges into the page -->
+  <div
+    class="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none md:hidden"
+    style="background: linear-gradient(to top, white 0%, transparent 100%);"
     aria-hidden="true"
   ></div>
 
